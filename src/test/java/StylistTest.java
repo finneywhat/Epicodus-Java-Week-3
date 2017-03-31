@@ -52,4 +52,50 @@ public class StylistTest {
     Stylist stylist = new Stylist("Dennis", "02-14-10", "30,000", "M-F");
     assertEquals(0, stylist.getClients().size());
   }
+
+  @Test
+  public void equals_returnsTrueIfObjectsAreSame_true() {
+    Stylist stylistOne = new Stylist("Dennis", "02-14-10", "30,000", "M-F");
+    Stylist stylistTwo = new Stylist("Dennis", "02-14-10", "30,000", "M-F");
+    assertTrue(stylistOne.equals(stylistTwo));
+  }
+
+  @Test
+  public void all_returnsAllIntancesOfStylist() {
+    Stylist stylistOne = new Stylist("Dennis", "02-14-10", "30,000", "M-F");
+    stylistOne.save();
+    Stylist stylistTwo = new Stylist("Liz", "01-11-11", "30,000", "Tue-Sun");
+    stylistTwo.save();
+    assertEquals(true, Stylist.all().contains(stylistOne));
+    assertEquals(true, Stylist.all().contains(stylistTwo));
+  }
+
+  @Test
+  public void save_assignsIdToObject() {
+    Stylist stylistOne = new Stylist("Dennis", "02-14-10", "30,000", "M-F");
+    stylistOne.save();
+    Stylist stylistTwo = new Stylist("Liz", "01-11-11", "30,000", "Tue-Sun");
+    stylistTwo.save();
+    Stylist savedStylist = Stylist.all().get(1);
+    assertEquals(stylistTwo.getId(), savedStylist.getId());
+  }
+
+  @Test
+  public void find_returnStylistObjectWithSame_Stylist() {
+    Stylist stylistOne = new Stylist("Dennis", "02-14-10", "30,000", "M-F");
+    stylistOne.save();
+    Stylist stylistTwo = new Stylist("Liz", "01-11-11", "30,000", "Tue-Sun");
+    stylistTwo.save();
+    assertEquals(stylistTwo, Stylist.find(stylistTwo.getId()));
+  }
+
+  @Test
+  public void update_updatesContentsOfAnInstanceOfStylist() {
+    Stylist stylistOne = new Stylist("Dennis", "02-14-10", "30,000", "M-F");
+    stylistOne.save();
+    Stylist stylistTwo = new Stylist("Liz", "01-11-11", "30,000", "Tue-Sun");
+    stylistTwo.save();
+    stylistOne.update("Dennis", "01-01-01", "40,000", "M-Th");
+    assertEquals("01-01-00", Stylist.find(stylistOne.getId()).getHireDate());
+  }
 }
