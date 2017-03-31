@@ -63,11 +63,41 @@ public class ClientTest {
     assertEquals(true, Client.all().get(0).equals(clientOne));
     assertEquals(true, Client.all().get(1).equals(clientTwo));
   }
-}
 
-// save()
-// all()
-// delete()
-// find()
-// update()
-// equals()
+  @Test
+  public void find_returnClientObjectWithSameId() {
+    Client clientOne = new Client("Chris", "03-31-17", "low-fade", 1);
+    clientOne.save();
+    Client clientTwo = new Client("Aaron", "03-31-17", "fade and beard-trim", 2);
+    clientTwo.save();
+    assertEquals(clientTwo, Client.find(clientTwo.getId()));
+  }
+
+  @Test
+  public void save_assignsIdToObject() {
+    Client clientOne = new Client("Chris", "03-31-17", "low-fade", 1);
+    clientOne.save();
+    Client savedClient = Client.all().get(0);
+    assertEquals(clientOne.getId(), savedClient.getId());
+  }
+
+  @Test
+  public void update_updatesContentsOfAnInstanceOfClient() {
+    Client clientOne = new Client("Chris", "03-31-17", "low-fade", 1);
+    clientOne.save();
+    Client clientTwo = new Client("Aaron", "03-31-17", "fade and beard-trim", 2);
+    clientTwo.save();
+    clientOne.update("Chris", "03-31-17", "faded-fade", 2);
+    assertEquals("faded-fade", Client.find(clientOne.getId()).getCut());
+  }
+
+  @Test
+  public void delete_deleteAClientObject() {
+    Client clientOne = new Client("Chris", "03-31-17", "low-fade", 1);
+    clientOne.save();
+    Client clientTwo = new Client("Aaron", "03-31-17", "fade and beard-trim", 2);
+    clientTwo.save();
+    clientOne.delete();
+    assertEquals(null, Client.find(clientOne.getId()));
+  }
+}

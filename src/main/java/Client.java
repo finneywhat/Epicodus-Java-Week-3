@@ -68,4 +68,35 @@ public class Client {
     }
   }
 
+  public static Client find(int id) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT * FROM clients WHERE id = :id";
+      Client client = con.createQuery(sql)
+        .addParameter("id", id)
+        .executeAndFetchFirst(Client.class);
+      return client;
+    }
+  }
+
+  public void update(String name, String appt_date, String cut_request, int stylist_id) {
+      String sql = "UPDATE clients SET name=:name, appt_date=:apptDate, cut_request=:cutRequest, stylist_id=:stylistId WHERE id=:id;";
+      try(Connection con = DB.sql2o.open()) {
+        con.createQuery(sql)
+          .addParameter("name", name)
+          .addParameter("apptDate", appt_date)
+          .addParameter("cutRequest", cut_request)
+          .addParameter("stylistId", stylist_id)
+          .addParameter("id", this.id)
+          .executeUpdate();
+        }
+  }
+
+  public void delete() {
+    String sql = "DELETE FROM clients WHERE id=:id;";
+    try(Connection con = DB.sql2o.open()) {
+      con.createQuery(sql)
+        .addParameter("id", this.id)
+        .executeUpdate();
+    }
+  }
 }
