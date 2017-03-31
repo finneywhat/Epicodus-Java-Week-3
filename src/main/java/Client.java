@@ -1,17 +1,18 @@
 import org.sql2o.*;
+import java.util.List;
 
 public class Client {
   private int id;
   private String name;
-  private String apptDate;
-  private String cutType;
-  private int stylistId;
+  private String appt_date;
+  private String cut_request;
+  private int stylist_id;
 
-  public Client(String name, String apptDate, String cutType, int stylistId) {
+  public Client(String name, String apptDate, String cutRequest, int stylistId) {
     this.name = name;
-    this.apptDate = apptDate;
-    this.cutType = cutType;
-    this.stylistId = stylistId;
+    this.appt_date = apptDate;
+    this.cut_request = cutRequest;
+    this.stylist_id = stylistId;
   }
 
   public String getName() {
@@ -19,15 +20,15 @@ public class Client {
   }
 
   public String getApptDate() {
-    return apptDate;
+    return appt_date;
   }
 
   public String getCut() {
-    return cutType;
+    return cut_request;
   }
 
   public int getStylistId() {
-    return stylistId;
+    return stylist_id;
   }
 
   public int getId() {
@@ -44,5 +45,27 @@ public class Client {
              this.getId() == newClient.getId();
   }
 }
+
+  public static List<Client> all() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT * FROM clients;";
+      List<Client> allClients = con.createQuery(sql)
+        .executeAndFetch(Client.class);
+      return allClients;
+    }
+  }
+
+  public void save() {
+  try(Connection con = DB.sql2o.open()) {
+    String sql = "INSERT INTO clients (name, appt_date, cut_request, stylist_id) VALUES (:name, :appt_date, :cut_request, :stylist_id);";
+    this.id = (int) con.createQuery(sql, true)
+      .addParameter("name", this.name)
+      .addParameter("appt_date", this.appt_date)
+      .addParameter("cut_request", this.cut_request)
+      .addParameter("stylist_id", this.stylist_id)
+      .executeUpdate()
+      .getKey();
+    }
+  }
 
 }

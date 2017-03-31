@@ -48,7 +48,21 @@ public class ClientTest {
   }
 
   @Test
+  public void equals_returnsTrueIfObjectsAreSame_true() {
+    Client clientOne = new Client("Chris", "03-31-17", "low-fade", 1);
+    Client clientTwo = new Client("Chris", "03-31-17", "low-fade", 1);
+    assertTrue(clientOne.equals(clientTwo));
+  }
 
+  @Test
+  public void all_returnsAllIntancesOfClient() {
+    Client clientOne = new Client("Chris", "03-31-17", "low-fade", 1);
+    clientOne.save();
+    Client clientTwo = new Client("Aaron", "03-31-17", "fade and beard-trim", 2);
+    clientTwo.save();
+    assertEquals(true, Client.all().get(0).equals(clientOne));
+    assertEquals(true, Client.all().get(1).equals(clientTwo));
+  }
 }
 
 // save()
