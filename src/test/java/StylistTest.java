@@ -96,6 +96,16 @@ public class StylistTest {
     Stylist stylistTwo = new Stylist("Liz", "01-11-11", "30,000", "Tue-Sun");
     stylistTwo.save();
     stylistOne.update("Dennis", "01-01-01", "40,000", "M-Th");
-    assertEquals("01-01-00", Stylist.find(stylistOne.getId()).getHireDate());
+    assertEquals("01-01-01", Stylist.find(stylistOne.getId()).getHireDate());
+  }
+
+  @Test
+  public void delete_deleteAnInstanceOfAStylist() {
+    Stylist stylistOne = new Stylist("Dennis", "02-14-10", "30,000", "M-F");
+    stylistOne.save();
+    Stylist stylistTwo = new Stylist("Liz", "01-11-11", "30,000", "Tue-Sun");
+    stylistTwo.save();
+    stylistOne.delete();
+    assertEquals(null, Stylist.find(stylistOne.getId()));
   }
 }
