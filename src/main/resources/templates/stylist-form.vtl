@@ -1,0 +1,20 @@
+<!-- stylist-form.vtl -->
+<div class="row">
+    <div class="well col-md-6">
+      <h3>Add a Barber</h3>
+      <hr>
+      <br>
+      <form action="/stylists" method="post">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" class="form-control" required>
+        <label for="hire-date">Hire Date</label>
+        <input id="hire-date" name="hire-date" type="text" class="form-control" placeholder="02-14-15" required>
+        <label for="salary">Salary</label>
+        <input id="salary" name="salary" type="text" class="form-control" placeholder="25,000" required>
+        <label for="schedule">Schedule</label>
+        <input id="schedule" name="schedule" type="text" class="form-control" placeholder="Tue-Sat" required>
+        <br>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Add Barber</button>
+      </form>
+    </div>
+<!-- stylist-form.vtl -->

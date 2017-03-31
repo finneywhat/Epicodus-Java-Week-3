@@ -1,0 +1,19 @@
+<!-- stylist-info.vtl -->
+<h3>$stylist.getName()</h3>
+<h5>Hired: $stylist.getHireDate()</h5>
+<h5>Salary: $stylist.getSalary()</h5>
+<h5>Schedule: $stylist.getSchedule()</h5>
+<br>
+<h4>$stylist.getName()'s Client List</h4>
+<hr>
+#if ($clients.size() > 0)
+  <ol>
+    #foreach ($client in $clients)
+      <li><a href="/stylists/$stylist.getId()/client/$client.getId()">$client.getName()</a></li>
+    #end
+  </ol>
+#else
+  <p>No clients</p>
+#end
+<hr>
+<!-- stylist-info.vtl -->
