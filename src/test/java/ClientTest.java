@@ -87,7 +87,7 @@ public class ClientTest {
     clientOne.save();
     Client clientTwo = new Client("Aaron", "03-31-17", "fade and beard-trim", 2);
     clientTwo.save();
-    clientOne.update("Chris", "03-31-17", "faded-fade", 2);
+    clientOne.update("Dan", "04-02-17", "faded-fade", 2);
     assertEquals("faded-fade", Client.find(clientOne.getId()).getCut());
   }
 

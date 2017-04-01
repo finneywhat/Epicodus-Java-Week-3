@@ -1,19 +1,65 @@
 <!-- stylist-info.vtl -->
-<h3>$stylist.getName()</h3>
-<h5>Hired: $stylist.getHireDate()</h5>
-<h5>Salary: $stylist.getSalary()</h5>
-<h5>Schedule: $stylist.getSchedule()</h5>
-<br>
-<h4>$stylist.getName()'s Client List</h4>
-<hr>
-#if ($clients.size() > 0)
-  <ol>
-    #foreach ($client in $clients)
-      <li><a href="/stylists/$stylist.getId()/client/$client.getId()">$client.getName()</a></li>
-    #end
-  </ol>
-#else
-  <p>No clients</p>
-#end
-<hr>
+<div class="row">
+  <h1 class="title-center">Barber Details</h1>
+  <div class="col-md-push-1 col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">$stylist.getName()</h3>
+      </div>
+      <div class="panel-body">
+        <div id="stylist-details">
+          <h5>Hire Date</h5>
+          <em>$stylist.getHireDate()</em>
+          <hr>
+          <h5>Salary</h5>
+          <em>$$stylist.getSalary()</em>
+          <hr>
+          <h5>Work Schedule</h5>
+          <em>$stylist.getSchedule()</em>
+          <hr>
+        </div>
+        <h5 style="text-align:center">Client List</h5>
+        <hr>
+        #if ($clients.size() > 0)
+        <ol>
+          #foreach ($client in $clients)
+          <li><a href="/stylists/$stylist.getId()/clients/$client.getId()">$client.getName()</a></li>
+          #end
+        </ol>
+        #else
+        <p><em>(No clients)</em></p>
+        #end
+        <hr>
+        <form action="/stylists/$stylist.getId()/client/new" method="get">
+          <button type="submit" class="btn btn-success btn-lg btn-block">Add Client</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-push-2 col-md-4">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">$stylist.getName()</h3>
+      </div>
+      <div class="panel-body">
+        <div class="panel-body">
+          <form action="/stylists/$stylist.getId()/update" method="post" class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" value="$stylist.getName()" class="form-control">
+            <label for="hireDate">Hire Date</label>
+            <input type="date" name="hireDate" value="$stylist.getHireDate()" class="form-control">
+            <label for="salary">Service Requested</label>
+            <input type="text" name="salary" value="$stylist.getSalary()" class="form-control">
+            <label for="schedule">Service Requested</label>
+            <input type="text" name="schedule" value="$stylist.getSchedule()" class="form-control">
+            <br>
+            <button type="submit" name="button" class="btn btn-primary btn-lg btn-block">Update Barber Info</button>
+          </form>
+          <form class="" action="/stylists/$stylist.getId()/delete" method="post">
+            <button type="submit" name="button" class="btn btn-danger btn-lg btn-block">Delete Barber</button>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- stylist-info.vtl -->

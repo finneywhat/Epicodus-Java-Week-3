@@ -77,15 +77,14 @@ public class Client {
       return client;
     }
   }
-
-  public void update(String name, String appt_date, String cut_request, int stylist_id) {
-      String sql = "UPDATE clients SET name=:name, appt_date=:apptDate, cut_request=:cutRequest, stylist_id=:stylistId WHERE id=:id;";
+//initially required int stylistId as parameter, but removed because of difficulty rendering the change of barber in the app
+  public void update(String name, String appt_date, String cut_request) {
+      String sql = "UPDATE clients SET name=:name, appt_date=:apptDate, cut_request=:cutRequest WHERE id=:id;";
       try(Connection con = DB.sql2o.open()) {
         con.createQuery(sql)
           .addParameter("name", name)
           .addParameter("apptDate", appt_date)
           .addParameter("cutRequest", cut_request)
-          .addParameter("stylistId", stylist_id)
           .addParameter("id", this.id)
           .executeUpdate();
         }

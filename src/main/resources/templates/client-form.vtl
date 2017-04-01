@@ -1,0 +1,29 @@
+<!-- client-form.vtl -->
+<div class="row">
+  <div class="col-md-push-2 col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Add Client to $stylist.getName()</h3>
+      </div>
+      <div class="panel-body">
+        <form action="/stylists/$stylist.getId()/clients/success" method="post" class="form-group">
+          <label for="name">Name</label>
+          <input type="text" name="name" class="form-control" required>
+          <label for="apptDate">Appointment Date</label>
+          <input type="date" name="apptDate" class="form-control" required>
+          <label for="cutType">Service Requested</label>
+          <input type="text" name="cutType" class="form-control" required>
+          <br>
+          <button type="submit" name="button" class="btn btn-success btn-lg btn-block">Add Client</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-push-2 col-md-4">
+    <a href="/" class="btn btn-info btn-lg btn-block">Home</a>
+  </div>
+</div>
+<!-- client-form.vtl -->

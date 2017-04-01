@@ -1,0 +1,52 @@
+<!-- client-info.vtl -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="well col-md-push-1 col-md-4">
+      <h4>Client Details</h4>
+      <hr>
+      <h4>Name</h4>
+      <p><em>$client.getName()</em></p>
+      <hr>
+      <h4>Appointment Date</h4>
+      <p><em>$client.getApptDate()</em></p>
+      <hr>
+      <h4>Service Requested</h4>
+      <p><em>$client.getCut()</em></p>
+      <hr>
+      <h4>Barber</h4>
+      <p><a href="/stylists/$stylist.getId()"><em>$stylist.find($stylist.getId()).getName()</em></a></p>
+      <hr>
+    </div>
+
+    <div class="col-md-push-2 col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Update Client Info</h3>
+        </div>
+        <div class="panel-body">
+          <form action="/stylists/$stylist.getId()/clients/$client.getId()/update" method="post" class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" value="$client.getName()" class="form-control">
+            <label for="apptDate">Appointment Date</label>
+            <input type="date" name="apptDate" value="$client.getApptDate()" class="form-control">
+            <label for="cutType">Service Requested</label>
+            <input type="text" name="cutType" value="$client.getCut()" class="form-control">
+            <br>
+            <!-- <label for="stylistId">Select a Barber</label>
+            <select id="stylistId" name="stylistId" type="text">
+              #foreach ($stylist in $stylists)
+              <option value="$stylist.getId()">$stylist.getName()</option>
+              #end
+            </select>
+            <br> -->
+            <button type="submit" name="button" class="btn btn-primary btn-lg btn-block">Update Client Info</button>
+          </form>
+          <form class="" action="/stylists/$stylist.getId()/clients/$client.getId()/delete" method="post">
+            <button type="submit" name="button" class="btn btn-danger btn-lg btn-block">Delete Client </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- client-info.vtl -->
