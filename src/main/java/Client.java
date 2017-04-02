@@ -87,8 +87,18 @@ public class Client {
           .addParameter("cutRequest", cut_request)
           .addParameter("id", this.id)
           .executeUpdate();
-        }
-  }
+      }
+    }
+
+    public void updateStylist(int stylist_id) {
+      try(Connection con = DB.sql2o.open()) {
+        String sql = "Update clients SET stylist_id=:stylist_id WHERE id=:id;";
+        con.createQuery(sql)
+          .addParameter("stylist_id", stylist_id)
+          .addParameter("id", this.id)
+          .executeUpdate();
+      }
+    }
 
   public void delete() {
     String sql = "DELETE FROM clients WHERE id=:id;";

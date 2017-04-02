@@ -1,23 +1,27 @@
 <!-- client-info.vtl -->
 <div class="container-fluid">
   <div class="row">
-    <div class="well col-md-push-1 col-md-4">
-      <h4>Client Details</h4>
-      <hr>
-      <h4>Name</h4>
-      <p><em>$client.getName()</em></p>
-      <hr>
-      <h4>Appointment Date</h4>
-      <p><em>$client.getApptDate()</em></p>
-      <hr>
-      <h4>Service Requested</h4>
-      <p><em>$client.getCut()</em></p>
-      <hr>
-      <h4>Barber</h4>
-      <p><a href="/stylists/$stylist.getId()"><em>$stylist.find($stylist.getId()).getName()</em></a></p>
-      <hr>
+    <h1 class="title-center">Client Details</h1>
+    <div class="col-md-push-1 col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Client Details</h3>
+        </div>
+        <div class="panel-body">
+          <h5>Name</h5>
+          <p><em>$client.getName()</em></p>
+          <hr>
+          <h5>Appointment Date</h5>
+          <p><em>$client.getApptDate()</em></p>
+          <hr>
+          <h5>Service Requested</h5>
+          <p><em>$client.getCut()</em></p>
+          <hr>
+          <h5>Barber</h5>
+          <p><a href="/stylists/$stylist.getId()"><em>$stylist.find($stylist.getId()).getName()</em></a></p>
+        </div>
+      </div>
     </div>
-
     <div class="col-md-push-2 col-md-4">
       <div class="panel panel-default">
         <div class="panel-heading">
@@ -27,18 +31,22 @@
           <form action="/stylists/$stylist.getId()/clients/$client.getId()/update" method="post" class="form-group">
             <label for="name">Name</label>
             <input type="text" name="name" value="$client.getName()" class="form-control">
+            <br>
             <label for="apptDate">Appointment Date</label>
             <input type="date" name="apptDate" value="$client.getApptDate()" class="form-control">
-            <label for="cutType">Service Requested</label>
-            <input type="text" name="cutType" value="$client.getCut()" class="form-control">
             <br>
-            <!-- <label for="stylistId">Select a Barber</label>
-            <select id="stylistId" name="stylistId" type="text">
-              #foreach ($stylist in $stylists)
-              <option value="$stylist.getId()">$stylist.getName()</option>
-              #end
+            <label for="cutType">Requested Service</label>
+            <br>
+            <select id="cutType" name="cutType" type="text">
+                <option value="$client.getCut()">$client.getCut()</option>
+                <option value="Classic Cut">Classic Cut</option>
+                <option value="Buzz">Buzz</option>
+                <option value="Low Skin Fade">Low Skin Fade</option>
+                <option value="High Fade">High fade</option>
+                <option value="Beard Trim">Beard trim</option>
             </select>
-            <br> -->
+            <br>
+            <br>
             <button type="submit" name="button" class="btn btn-primary btn-lg btn-block">Update Client Info</button>
           </form>
           <form class="" action="/stylists/$stylist.getId()/clients/$client.getId()/delete" method="post">

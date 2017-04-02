@@ -1,51 +1,92 @@
 <!--index.vtl-->
-  <div class="row">
-    <h3>Stylists</h3>
-    #if ($stylists.size() > 0)
-      <p>(Click a barber to see clients)</p>
-    #end
-    <hr>
-    <ol>
-      #if ($stylists.size() == 0)
-        <p>No barbers</p>
-      #else
-        #foreach ($stylist in $stylists)
-          <li><a href="/stylists/$stylist.getId()">$stylist.getName()</a></li>
-        #end
+<div class="row">
+  <h3>Current Staff</h3>
+  #if ($stylists.size() > 0)
+    <p>(Click a barber to see clients)</p>
+  #end
+  <hr>
+  <ol>
+    #if ($stylists.size() == 0)
+      <p>No barbers</p>
+    #else
+      #foreach ($stylist in $stylists)
+        <li><a href="/stylists/$stylist.getId()">$stylist.getName()</a></li>
       #end
-    </ol>
-    <hr>
-  </div>
-  <div class="row">
-    <div class="well col-md-push-1 col-md-5">
+    #end
+  </ol>
+  <hr>
+</div>
+<div class="row">
+  <div class="col-md-push-1 col-md-5">
+    <div class="row well">
       <h3>Barber Stuff</h3>
       <hr>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       <form action="/stylists/new" method="get">
         <button type="submit" class="btn btn-primary btn-lg btn-block">Add Barber</button>
       </form>
     </div>
-    <div class="well col-md-push-1 col-md-5">
-      <h3>Add a New Client</h3>
-      <hr>
-      <form action="/clients" method="post">
-        <label for="stylistId">Select a Barber</label>
-        <select id="stylistId" name="stylistId" type="text">
-          #foreach ($stylist in $stylists)
-            <option value="$stylist.getId()">$stylist.getName()</option>
+    <div class="row well">
+      <form action="/clients/reassign" method="post">
+      <h3>Orphaned Clients</h3>
+      <label for="orphanClient">Select a Client</label>
+      <br>
+      <select id="orphanClient" name="orphanClient" type="text">
+        #foreach ($client in $clients)
+          #if (!$stylistsIDs.contains($client.getStylistId()))
+            <option value="$client.getId()">$client.getName()</option>
           #end
-        </select>
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" class="form-control" required>
-          <label for="apptDate">Appointment Date</label>
-          <input id="apptDate" name="apptDate" type="date" class="form-control" required>
-          <label for="cutType">Requested Service</label>
-          <input id="cutType" name="cutType" type="text" class="form-control" placeholder="classic-cut, beard trim, fade, etc" required>
-        </div>
-
-        <button type="submit" class="btn btn-success btn-lg btn-block">Add Client</button>
-      </form>
+        #end
+      </select>
+      <br>
+      <br>
+      <label for="stylistId">Select a Barber</label>
+      <br>
+      <select id="stylistNewClient" name="stylistNewClient" type="text">
+        #foreach ($stylist in $stylists)
+          <option value="$stylist.getId()">$stylist.getName()</option>
+        #end
+      </select>
+      <br>
+      <br>
+      <button type="submit" class="btn btn-success btn-lg btn-block">Add Orphan Client to Barber</button>
+    </form>
     </div>
   </div>
+  <div class="well col-md-push-1 col-md-5">
+    <h3>Add a New Client</h3>
+    <hr>
+    <form action="/clients" method="post">
+      <label for="stylistId">Select a Barber</label>
+      <br>
+      <select id="stylistId" name="stylistId" type="text">
+        #foreach ($stylist in $stylists)
+          <option value="$stylist.getId()">$stylist.getName()</option>
+        #end
+      </select>
+      <br>
+      <br>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" class="form-control" required>
+        <br>
+        <label for="apptDate">Appointment Date</label>
+        <input id="apptDate" name="apptDate" type="date" class="form-control" required>
+        <br>
+        <label for="cutType">Requested Service</label>
+        <br>
+        <select id="cutType" name="cutType" type="text">
+            <option value="Classic Cut">Classic Cut</option>
+            <option value="Buzz">Buzz</option>
+            <option value="Low Skin Fade">Low Skin Fade</option>
+            <option value="High Fade">High fade</option>
+            <option value="Beard Trim">Beard trim</option>
+        </select>
+      </div>
+      <br>
+      <br>
+      <button type="submit" class="btn btn-success btn-lg btn-block">Add Client</button>
+    </form>
+  </div>
+</div>
 <!--index.vtl-->

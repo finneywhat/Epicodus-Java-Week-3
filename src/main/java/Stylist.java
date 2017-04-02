@@ -66,6 +66,15 @@ public class Stylist {
     }
   }
 
+  public static List<Integer> allIDs() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT id FROM stylists;";
+      List<Integer> allStylistsIDs = con.createQuery(sql)
+        .executeAndFetch(Integer.class);
+      return allStylistsIDs;
+    }
+  }
+
   public void save() {
     try(Connection con = DB.sql2o.open()) {
       String sql = "INSERT INTO stylists (name, hire_date, base_salary, work_schedule) VALUES (:name, :hire_date, :base_salary, :work_schedule);";

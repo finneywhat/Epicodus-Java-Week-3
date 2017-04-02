@@ -4,21 +4,21 @@
   <div class="col-md-push-1 col-md-4">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">$stylist.getName()</h3>
+        <h3 class="panel-title">$stylist.getName() Details</h3>
       </div>
       <div class="panel-body">
         <div id="stylist-details">
-          <h5>Hire Date</h5>
+          <h4>Hire Date</h4>
           <em>$stylist.getHireDate()</em>
           <hr>
-          <h5>Salary</h5>
-          <em>$$stylist.getSalary()</em>
+          <h4>Salary</h4>
+          <em>$stylist.getSalary()</em>
           <hr>
-          <h5>Work Schedule</h5>
+          <h4>Work Schedule</h4>
           <em>$stylist.getSchedule()</em>
           <hr>
         </div>
-        <h5 style="text-align:center">Client List</h5>
+        <h4 style="text-align:center">Client List</h4>
         <hr>
         #if ($clients.size() > 0)
         <ol>
@@ -39,19 +39,19 @@
   <div class="col-md-push-2 col-md-4">
     <div class="panel panel-primary">
       <div class="panel-heading">
-        <h3 class="panel-title">$stylist.getName()</h3>
+        <h3 class="panel-title">Update/Delete $stylist.getName()</h3>
       </div>
       <div class="panel-body">
         <div class="panel-body">
           <form action="/stylists/$stylist.getId()/update" method="post" class="form-group">
             <label for="name">Name</label>
-            <input type="text" name="name" value="$stylist.getName()" class="form-control">
+            <input type="text" name="name" value="$stylist.getName()" class="form-control" required>
             <label for="hireDate">Hire Date</label>
-            <input type="date" name="hireDate" value="$stylist.getHireDate()" class="form-control">
-            <label for="salary">Service Requested</label>
-            <input type="text" name="salary" value="$stylist.getSalary()" class="form-control">
-            <label for="schedule">Service Requested</label>
-            <input type="text" name="schedule" value="$stylist.getSchedule()" class="form-control">
+            <input type="date" name="hireDate" value="$stylist.getHireDate()" class="form-control" required>
+            <label for="salary">Salary</label>
+            <input type="text" name="salary" value="$stylist.getSalary()" class="form-control" required>
+            <label for="schedule">Schedule</label>
+            <input type="text" name="schedule" value="$stylist.getSchedule()" class="form-control" required>
             <br>
             <button type="submit" name="button" class="btn btn-primary btn-lg btn-block">Update Barber Info</button>
           </form>
