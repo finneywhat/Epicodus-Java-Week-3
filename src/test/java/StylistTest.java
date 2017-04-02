@@ -71,6 +71,16 @@ public class StylistTest {
   }
 
   @Test
+  public void allIDs_returnsListOfAllStylistIds() {
+    Stylist stylistOne = new Stylist("Dennis", "02-14-10", "30,000", "M-F");
+    stylistOne.save();
+    Stylist stylistTwo = new Stylist("Liz", "01-11-11", "30,000", "Tue-Sun");
+    stylistTwo.save();
+    assertEquals(true, Stylist.allIDs().contains(stylistOne.getId()));
+    assertEquals(true, Stylist.allIDs().contains(stylistTwo.getId()));
+  }
+
+  @Test
   public void save_assignsIdToObject() {
     Stylist stylistOne = new Stylist("Dennis", "02-14-10", "30,000", "M-F");
     stylistOne.save();

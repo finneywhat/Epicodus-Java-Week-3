@@ -1,6 +1,7 @@
 import org.sql2o.*;
 import org.junit.*;
 import static org.junit.Assert.*;
+import java.util.List;
 
 public class ClientTest {
 
@@ -42,7 +43,7 @@ public class ClientTest {
   }
 
   @Test
-  public void getStylistId_clientInstantiatesWithName_int() {
+  public void getStylistId_clientInstantiatesWithStylistId_int() {
     Client myClient = new Client("Chris", "03-31-17", "low-fade", 1);
     assertEquals(1, myClient.getStylistId());
   }
@@ -87,7 +88,7 @@ public class ClientTest {
     clientOne.save();
     Client clientTwo = new Client("Aaron", "03-31-17", "fade and beard-trim", 2);
     clientTwo.save();
-    clientOne.update("Dan", "04-02-17", "faded-fade", 2);
+    clientOne.update("Dan", "04-02-17", "faded-fade");
     assertEquals("faded-fade", Client.find(clientOne.getId()).getCut());
   }
 
@@ -99,5 +100,13 @@ public class ClientTest {
     clientTwo.save();
     clientOne.delete();
     assertEquals(null, Client.find(clientOne.getId()));
+  }
+
+  @Test
+  public void updateStylist_updatesStylistId() {
+    Client clientOne = new Client("Chris", "03-31-17", "low-fade", 1);
+    clientOne.save();
+    clientOne.updateStylist(2);
+    assertEquals(2, Client.find(clientOne.getId()).getStylistId());
   }
 }

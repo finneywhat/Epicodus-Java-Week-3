@@ -89,7 +89,7 @@ public class Client {
           .executeUpdate();
       }
     }
-
+//create a method to update a client's stylist when the original stylist has been removed
     public void updateStylist(int stylist_id) {
       try(Connection con = DB.sql2o.open()) {
         String sql = "Update clients SET stylist_id=:stylist_id WHERE id=:id;";
