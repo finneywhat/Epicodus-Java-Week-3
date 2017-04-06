@@ -1,7 +1,7 @@
 <!-- stylist-info.vtl -->
 <div class="row">
   <h2 style="font-family:'Questrial' "class="title-center">Barber Details</h2>
-  <div class="col-md-push-1 col-md-4">
+  <div class="col-md-4 col-md-offset-2">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">$stylist.getName() Details</h3>
@@ -12,7 +12,7 @@
           <em>$stylist.getHireDate()</em>
           <hr>
           <h4>Salary</h4>
-          <em>$stylist.getSalary()</em>
+          $ <em>$stylist.getSalary()</em>
           <hr>
           <h4>Work Schedule</h4>
           <em>$stylist.getSchedule()</em>
@@ -36,7 +36,7 @@
       </div>
     </div>
   </div>
-  <div class="col-md-push-2 col-md-4">
+  <div class="col-md-4">
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">Update/Delete $stylist.getName()</h3>

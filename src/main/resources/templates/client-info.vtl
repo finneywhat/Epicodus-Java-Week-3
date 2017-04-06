@@ -2,7 +2,7 @@
 <div class="container-fluid">
   <div class="row">
     <h2 style="font-family:'Questrial' "class="title-center">Client Details</h2>
-    <div class="col-md-push-1 col-md-4">
+    <div class="col-md-4 col-md-offset-2">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">Client Details</h3>
@@ -22,7 +22,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-push-2 col-md-4">
+    <div class="col-md-4">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">Update Client Info</h3>
@@ -35,17 +35,29 @@
             <label for="apptDate">Appointment Date</label>
             <input type="date" name="apptDate" value="$client.getApptDate()" class="form-control">
             <br>
-            <label for="cutType">Requested Service</label>
-            <br>
-            <select id="cutType" name="cutType" type="text">
+            <div class="client-dropdowns">
+              <label for="cutType">Requested Service</label>
+              <br>
+              <select id="cutType" name="cutType" type="text">
                 <option value="$client.getCut()">$client.getCut()</option>
                 <option value="Classic Cut">Classic Cut</option>
                 <option value="Buzz">Buzz</option>
                 <option value="Low Skin Fade">Low Skin Fade</option>
                 <option value="High Fade">High fade</option>
                 <option value="Beard Trim">Beard trim</option>
-            </select>
-            <br>
+              </select>
+              <br>
+            </div>
+            <div class="client-dropdowns">
+              <label for="chgStylist">Change Barber</label>
+              <br>
+              <select id="chgStylist" name="chgStylist" type="text">
+                #foreach ($stylist in $stylists)
+                <option value="$stylist.getId()">$stylist.getName()</option>
+                #end
+              </select>
+
+            </div>
             <br>
             <button type="submit" name="button" class="btn btn-primary btn-lg btn-block">Update Client Info</button>
           </form>
