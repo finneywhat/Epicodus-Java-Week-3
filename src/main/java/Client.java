@@ -43,8 +43,8 @@ public class Client {
       Client newClient = (Client) otherClient;
       return this.getName().equals(newClient.getName()) &&
              this.getId() == newClient.getId();
+    }
   }
-}
 
   public static List<Client> all() {
     try(Connection con = DB.sql2o.open()) {
@@ -77,28 +77,28 @@ public class Client {
       return client;
     }
   }
-//initially required int stylistId as parameter, but removed because of difficulty rendering the change of barber in the app
+
   public void update(String name, String appt_date, String cut_request) {
-      String sql = "UPDATE clients SET name=:name, appt_date=:apptDate, cut_request=:cutRequest WHERE id=:id;";
-      try(Connection con = DB.sql2o.open()) {
-        con.createQuery(sql)
-          .addParameter("name", name)
-          .addParameter("apptDate", appt_date)
-          .addParameter("cutRequest", cut_request)
-          .addParameter("id", this.id)
-          .executeUpdate();
-      }
+    String sql = "UPDATE clients SET name=:name, appt_date=:apptDate, cut_request=:cutRequest WHERE id=:id;";
+    try(Connection con = DB.sql2o.open()) {
+      con.createQuery(sql)
+        .addParameter("name", name)
+        .addParameter("apptDate", appt_date)
+        .addParameter("cutRequest", cut_request)
+        .addParameter("id", this.id)
+        .executeUpdate();
     }
-//create a method to update a client's stylist when the original stylist has been removed
-    public void updateStylist(int stylist_id) {
-      try(Connection con = DB.sql2o.open()) {
-        String sql = "Update clients SET stylist_id=:stylist_id WHERE id=:id;";
-        con.createQuery(sql)
-          .addParameter("stylist_id", stylist_id)
-          .addParameter("id", this.id)
-          .executeUpdate();
-      }
+  }
+
+  public void updateStylist(int stylist_id) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "Update clients SET stylist_id=:stylist_id WHERE id=:id;";
+      con.createQuery(sql)
+        .addParameter("stylist_id", stylist_id)
+        .addParameter("id", this.id)
+        .executeUpdate();
     }
+  }
 
   public void delete() {
     String sql = "DELETE FROM clients WHERE id=:id;";

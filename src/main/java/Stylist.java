@@ -46,6 +46,16 @@ public class Stylist {
     }
   }
 
+  public Integer getClientSize() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT COUNT (stylist_id) FROM clients WHERE stylist_id = :id;";
+      Integer size = con.createQuery(sql)
+        .addParameter("id", this.id)
+        .executeScalar(Integer.class);
+      return size;
+    }
+  }
+
   @Override
   public boolean equals(Object otherStylist) {
     if (!(otherStylist instanceof Stylist)) {

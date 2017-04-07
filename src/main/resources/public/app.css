@@ -94,3 +94,46 @@ hr {
   margin-bottom: 20px;
   margin-left: 20px;
 }
+
+#clickBrandName {
+  padding-top: 5px;
+  color: gray;
+  font-size: 22px;
+  font-family: 'Lobster';
+  margin-left: 10px;
+}
+
+#client-div-height {
+  height: 401px;
+}
+
+#searchBtnMarginLeft {
+  margin-left: 5px;
+}
+
+.affix {
+  top: 0;
+  width: 100%;
+  z-index: 9999 !important;
+ }
+
+ .affix ~ .jumbotron {
+   position: relative;
+   top: 282px;
+ }
+
+ hr {
+   border-bottom: 1px solid #bbb;
+ }
+
+#homeWellsMarginTop {
+  margin-top: 45px;
+}
+
+#barber-list {
+  margin-top: 40px;
+}
+
+.panel-hr {
+  border-bottom: 1px solid #e7e7e7;
+}

@@ -81,8 +81,9 @@ public class App {
       model.put("clients", stylist.getClients());
       model.put("stylist", stylist);
       model.put("client", newClient);
-      String url = String.format("/stylists/%d", stylist.getId());
-      response.redirect(url);
+      // String url = String.format("/stylists/%d", stylist.getId());
+      // response.redirect(url);
+      response.redirect(request.headers("Referer"));
       // model.put("template", "templates/stylist-info.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -120,7 +121,6 @@ public class App {
       client.updateStylist(chgStylist);
       String url = String.format("/stylists/%d/clients/%d", newStylist.getId(), client.getId());
       response.redirect(url);
-      // response.redirect(request.headers("Referer"));
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
@@ -170,8 +170,9 @@ public class App {
       model.put("stylist", stylist);
       // model.put("stylists", Stylist.all());
       // model.put("clients", Client.all());
-      String url = String.format("/stylists/%d", stylist.getId());
-      response.redirect(url);
+      // String url = String.format("/stylists/%d", stylist.getId());
+      // response.redirect(url);
+      response.redirect(request.headers("Referer"));
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
   }

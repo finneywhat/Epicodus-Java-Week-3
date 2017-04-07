@@ -1,47 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HairSalon</title>
+    <title>Freshly Faded</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="/app.css">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Playball|Poiret+One|Questrial|Righteous" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="/js/scripts.js"></script>
   </head>
-  <body>
+  <body data-spy="scroll" data-target=".navbar" data-offset="282">
     <div class="jumbotron">
       <div class="container">
         <h1>Freshly Faded</h1>
         <h3>All heads welcome</h3>
       </div>
     </div>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default" data-spy="affix" data-offset-top="282">
       <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar">Home</span>
-            <span class="icon-bar"><a href="https://github.com/finneywhat">ChrisGitHub</a></span>
-            <span class="icon-bar">About</span>
           </button>
-          <a class="navbar-brand" href="/"><img src="/images/scissors.png" alt="barbershop logo" id="logo"/></a>
+          <!-- <img src="/images/scissors.png" alt="barbershop logo" id="logo"/> -->
+          <a id="clickBrandName" class="navbar-brand" href="/">Freshly<br>Faded</a>
         </div>
-
     <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li><a>Click the Scissors to return home</a></li>
-          </ul>
-          <form class="navbar-form navbar-left">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Just for looks ;)">
-            </div>
-            <button type="submit" class="btn btn-default">Submit</button>
-          </form>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="https://github.com/finneywhat" target="_blank">Chris's GitHub</a></li>
           </ul>
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Just for looks ;)">
+            </div>
+            <button type="submit" class="btn btn-default" id="searchBtnMarginLeft">Submit</button>
+          </form>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>

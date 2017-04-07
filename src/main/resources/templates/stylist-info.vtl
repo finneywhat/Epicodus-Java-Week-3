@@ -10,16 +10,16 @@
         <div id="stylist-details">
           <h4>Hire Date</h4>
           <em>$stylist.getHireDate()</em>
-          <hr>
+          <hr class="panel-hr">
           <h4>Salary</h4>
           $ <em>$stylist.getSalary()</em>
-          <hr>
+          <hr class="panel-hr">
           <h4>Work Schedule</h4>
           <em>$stylist.getSchedule()</em>
-          <hr>
+          <hr class="panel-hr">
         </div>
         <h4 style="text-align:center">Client List</h4>
-        <hr>
+        <hr class="panel-hr">
         #if ($clients.size() > 0)
         <ol>
           #foreach ($client in $clients)
@@ -29,7 +29,7 @@
         #else
         <p><em>(No clients)</em></p>
         #end
-        <hr>
+        <hr class="panel-hr">
         <form action="/stylists/$stylist.getId()/client/new" method="get">
           <button type="submit" class="btn btn-success btn-lg btn-block">Add Client</button>
         </form>

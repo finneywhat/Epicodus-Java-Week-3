@@ -2,21 +2,21 @@
 <div class="row">
   <h3 style="font-family:'Questrial'; font-weight:bold">Current Staff</h3>
   #if ($stylists.size() > 0)
-    <p>(Click a barber to see clients)</p>
+    <p>(Click barber to see more info)</p>
   #end
-  <hr>
-  <ol>
+  <hr style="width:300px" class="pull-left">
+  <ol id="barber-list">
     #if ($stylists.size() == 0)
       <p>No barbers</p>
     #else
       #foreach ($stylist in $stylists)
-        <li><a href="/stylists/$stylist.getId()">$stylist.getName()</a></li>
+        <li><a href="/stylists/$stylist.getId()">$stylist.getName()</a>  <span class="badge">$stylist.getClientSize()</span></li>
       #end
     #end
   </ol>
-  <hr>
+  <hr style="width:300px" class="pull-left">
 </div>
-<div class="row">
+<div class="row" id="homeWellsMarginTop">
   <div class="col-md-push-1 col-md-5">
     <div class="row well">
       <h3>Add a New Barber</h3>
