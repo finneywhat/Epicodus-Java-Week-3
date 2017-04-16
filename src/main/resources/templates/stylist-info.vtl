@@ -1,66 +1,90 @@
 <!-- stylist-info.vtl -->
-<div class="row">
-  <h2 style="font-family:'Questrial' "class="title-center">Barber Details</h2>
-  <div class="col-md-4 col-md-offset-2">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">$stylist.getName() Details</h3>
-      </div>
-      <div class="panel-body">
-        <div id="stylist-details">
-          <h4>Hire Date</h4>
-          <em>$stylist.getHireDate()</em>
-          <hr class="panel-hr">
-          <h4>Salary</h4>
-          $ <em>$stylist.getSalary()</em>
-          <hr class="panel-hr">
-          <h4>Work Schedule</h4>
-          <em>$stylist.getSchedule()</em>
-          <hr class="panel-hr">
+  <div class="row">
+    <h2 style="font-family:'Questrial' "class="title-center">Barber Details</h2>
+    <div class="col-md-4 col-md-offset-2">
+      <div class="panel panel-default hover-shadow">
+        <div class="panel-heading">
+          <h3 class="panel-title">$stylist.getName() Details</h3>
         </div>
-        <h4 style="text-align:center">Client List</h4>
-        <hr class="panel-hr">
-        #if ($clients.size() > 0)
-        <ol>
-          #foreach ($client in $clients)
-          <li><a href="/stylists/$stylist.getId()/clients/$client.getId()">$client.getName()</a></li>
-          #end
-        </ol>
-        #else
-        <p><em>(No clients)</em></p>
-        #end
-        <hr class="panel-hr">
-        <form action="/stylists/$stylist.getId()/client/new" method="get">
-          <button type="submit" class="btn btn-success btn-lg btn-block">Add Client</button>
-        </form>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title">Update/Delete $stylist.getName()</h3>
-      </div>
-      <div class="panel-body">
         <div class="panel-body">
-          <form action="/stylists/$stylist.getId()/update" method="post" class="form-group">
-            <label for="name">Name</label>
-            <input type="text" name="name" value="$stylist.getName()" class="form-control" required>
-            <label for="hireDate">Hire Date</label>
-            <input type="date" name="hireDate" value="$stylist.getHireDate()" class="form-control" required>
-            <label for="salary">Salary</label>
-            <input type="text" name="salary" value="$stylist.getSalary()" class="form-control" required>
-            <label for="schedule">Schedule</label>
-            <input type="text" name="schedule" value="$stylist.getSchedule()" class="form-control" required>
-            <br>
-            <button type="submit" name="button" class="btn btn-primary btn-lg btn-block">Update Barber Info</button>
-          </form>
-          <form class="" action="/stylists/$stylist.getId()/delete" method="post">
-            <button type="submit" name="button" class="btn btn-danger btn-lg btn-block">Delete Barber</button>
+          <div id="stylist-details">
+            <h4>Hire Date</h4>
+            <em>$stylist.getHireDate()</em>
+            <hr class="panel-hr">
+            <h4>Salary</h4>
+            $ <em>$stylist.getSalary()</em>
+            <hr class="panel-hr">
+            <h4>Work Schedule</h4>
+            <em>$stylist.getSchedule()</em>
+            <hr class="panel-hr">
+          </div>
+          <h4 class="panel-title" style="text-align:center">Client List</h4>
+          <hr class="panel-hr">
+          #if ($clients.size() > 0)
+          <ol>
+            #foreach ($client in $clients)
+            <li><a href="/stylists/$stylist.getId()/clients/$client.getId()">$client.getName()</a></li>
+            #end
+          </ol>
+          #else
+          <p><em>(No clients)</em></p>
+          #end
+          <hr class="panel-hr">
+          <form action="/stylists/$stylist.getId()/client/new" method="get">
+            <button type="submit" class="btn btn-success btn-lg btn-block">Add Client</button>
           </form>
         </div>
       </div>
     </div>
+    <div class="col-md-4">
+      <div class="panel panel-default hover-shadow">
+        <div class="panel-heading">
+          <h3 class="panel-title">Update/Delete $stylist.getName()</h3>
+        </div>
+        <div class="panel-body">
+          <div class="panel-body">
+            <form action="/stylists/$stylist.getId()/update" method="post" class="form-group">
+              <label for="name">Name</label>
+              <input type="text" name="name" value="$stylist.getName()" class="form-control" required>
+              <br>
+              <label for="hireDate">Hire Date</label>
+              <input type="date" name="hireDate" value="$stylist.getHireDate()" class="form-control" required>
+              <br>
+              <label for="salary">Salary</label>
+              <input type="text" name="salary" value="$stylist.getSalary()" class="form-control" required>
+              <br>
+              <label for="schedule">Schedule</label>
+              <input type="text" name="schedule" value="$stylist.getSchedule()" class="form-control" required>
+              <br>
+              <br>
+              <hr class="panel-hr">
+              <button type="submit" name="button" class="btn btn-primary btn-lg btn-block">Update Barber Info</button>
+            </form>
+            <button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#deleteBarberModal" data-id="$stylist.getId()">Delete Barber</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+
+  <div class="modal fade" id="deleteBarberModal" tabindex="-1" role="dialog" aria-labelledby="deleteLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="deleteLabel">Confirm</h4>
+        </div>
+        <div class="modal-body">
+          <p>You are about to delete $stylist.getName() from the database. Keep in mind that the existing clients will need to be placed with a new barber via the homepage.
+          Are you sure you want to continue?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <form id="deleteBarberForm" action="/stylists/$stylist.getId()/delete" method="post">
+            <button type="submit" class="btn btn-danger">Delete Barber</button>
+          </form>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 <!-- stylist-info.vtl -->

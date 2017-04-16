@@ -56,8 +56,9 @@ public class App {
       String salary = request.queryParams("salary");
       String schedule = request.queryParams("schedule");
       stylist.update(name, hireDate, salary, schedule);
-      String url = String.format("/stylists/%d", stylist.getId());
-      response.redirect(url);
+      // String url = String.format("/stylists/%d", stylist.getId());
+      // response.redirect(url);
+      response.redirect(request.headers("Referer"));
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
@@ -65,7 +66,7 @@ public class App {
       Map<String, Object> model = new HashMap<String, Object>();
       Stylist stylist = Stylist.find(Integer.parseInt(request.params(":id")));
       stylist.delete();
-      model.put("template", "templates/index.vtl");
+      // model.put("template", "templates/index.vtl");
       response.redirect("/");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());

@@ -109,3 +109,29 @@ public class Client {
     }
   }
 }
+
+//   public static Integer allOrphans() {
+//     List<String> stylistIds [];
+//     List<String> clientIds [];
+//     Integer count;
+//     try(Connection con = DB.sql2o.open()) {
+//       String sql = "SELECT id FROM stylists;";
+//         con.createQuery(sql)
+//            .executeUpdate();
+//
+//     }
+//     try(Connection con = DB.sql2o.open()) {
+//       String sql = "SELECT stylist_id FROM clients;";
+//       clientIds[] = con.createQuery(sql)
+//          .executeUpdate();
+//
+//     }
+//     for (int i = 0; i < clientIds.length ; i++) {
+//       if (!(stylistIds.contains(clientIds[i]))) {
+//         count ++;
+//       } else {
+//       }
+//     }
+//     return count;
+//   }
+// }
