@@ -57,6 +57,10 @@ body {
   margin: 5px;
 }
 
+.well-hr {
+  border-bottom: 1px solid #bbb;
+}
+
 .panel-title {
   text-align: center;
   line-height: 2em;
@@ -73,8 +77,18 @@ body {
   line-height: 1em;
 }
 
+.stylist-labels {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.glyphicon {
+  vertical-align: text-top;
+  margin-left: .2em;
+}
+
 #indexPg-margin-top {
-  margin-top: 53px;
+  margin-top: 56px;
 }
 
 .hr-index-barbers {

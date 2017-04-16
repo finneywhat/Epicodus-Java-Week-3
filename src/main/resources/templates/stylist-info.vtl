@@ -31,7 +31,7 @@
           #end
           <hr class="panel-hr">
           <form action="/stylists/$stylist.getId()/client/new" method="get">
-            <button type="submit" class="btn btn-success btn-lg btn-block">Add Client</button>
+            <button type="submit" class="btn btn-success btn-lg btn-block">Add Client <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span></button>
           </form>
         </div>
       </div>
@@ -44,23 +44,23 @@
         <div class="panel-body">
           <div class="panel-body">
             <form action="/stylists/$stylist.getId()/update" method="post" class="form-group">
-              <label for="name">Name</label>
+              <label for="name" class="stylist-labels">Name</label>
               <input type="text" name="name" value="$stylist.getName()" class="form-control" required>
               <br>
-              <label for="hireDate">Hire Date</label>
+              <label for="hireDate" class="stylist-labels">Hire Date</label>
               <input type="date" name="hireDate" value="$stylist.getHireDate()" class="form-control" required>
               <br>
-              <label for="salary">Salary</label>
+              <label for="salary" class="stylist-labels">Salary</label>
               <input type="text" name="salary" value="$stylist.getSalary()" class="form-control" required>
               <br>
-              <label for="schedule">Schedule</label>
+              <label for="schedule" class="stylist-labels">Schedule</label>
               <input type="text" name="schedule" value="$stylist.getSchedule()" class="form-control" required>
               <br>
               <br>
               <hr class="panel-hr">
-              <button type="submit" name="button" class="btn btn-primary btn-lg btn-block">Update Barber Info</button>
+              <button type="submit" name="button" class="btn btn-primary btn-lg btn-block">Update Barber Info <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>
             </form>
-            <button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#deleteBarberModal" data-id="$stylist.getId()">Delete Barber</button>
+            <button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#deleteBarberModal" data-id="$stylist.getId()">Delete Barber <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></button>
           </div>
         </div>
       </div>
