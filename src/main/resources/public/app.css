@@ -87,10 +87,6 @@ body {
   margin-left: .2em;
 }
 
-#indexPg-margin-top {
-  margin-top: 56px;
-}
-
 .hr-index-barbers {
   width: 300px;
 }
@@ -173,10 +169,6 @@ hr {
 
 #homeWellsMarginTop {
   margin-top: 45px;
-}
-
-#barber-list {
-  margin-top: 40px;
 }
 
 .panel-hr {
