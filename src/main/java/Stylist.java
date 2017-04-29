@@ -129,4 +129,14 @@ public class Stylist {
           .executeUpdate();
       }
     }
+
+    public static List<Stylist> search(String input) {
+    String newInput = "%" + input + "%";
+    try (Connection con = DB.sql2o.open()) {
+      String sql = "SELECT * FROM stylists WHERE lower(name) LIKE lower(:newInput);";
+      return con.createQuery(sql)
+        .addParameter("newInput", newInput)
+        .executeAndFetch(Stylist.class);
+    }
+  }
 }

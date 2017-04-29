@@ -30,6 +30,18 @@ body {
   font-size: 100px;
 }
 
+.nav-wrap {
+  height: 50px;
+  width: 100%;
+  display: table;
+  background-color: white;
+}
+
+.navbar {
+  height: 50px;
+  width: 100%;
+}
+
 #logo {
   margin-top: -15px;
 }
@@ -133,6 +145,15 @@ hr {
   display: inline-block;
   margin-bottom: 20px;
   margin-left: 20px;
+}
+
+#deleteBarberModal {
+  top: 10%;
+}
+
+.modal-body {
+  margin-left: 10%;
+  width: 80%;
 }
 
 #clickBrandName {

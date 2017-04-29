@@ -108,7 +108,6 @@ public class Client {
         .executeUpdate();
     }
   }
-}
 
 //   public static Integer allOrphans() {
 //     List<String> stylistIds [];
@@ -135,3 +134,14 @@ public class Client {
 //     return count;
 //   }
 // }
+
+  public static List<Client> search(String input) {
+  String newInput = "%" + input + "%";
+  try (Connection con = DB.sql2o.open()) {
+    String sql = "SELECT * FROM clients WHERE lower(name) LIKE lower(:newInput);";
+    return con.createQuery(sql)
+      .addParameter("newInput", newInput)
+      .executeAndFetch(Client.class);
+    }
+  }
+}
