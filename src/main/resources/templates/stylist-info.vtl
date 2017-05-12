@@ -2,7 +2,7 @@
   <div class="row">
     <h2 style="font-family:'Questrial' "class="title-center">Barber Details</h2>
     <div class="col-md-4 col-md-offset-2">
-      <div class="panel panel-default hover-shadow">
+      <div class="panel panel-default hover-shadow" id="stylist-info">
         <div class="panel-heading">
           <h3 class="panel-title">$stylist.getName() Details</h3>
         </div>
@@ -57,7 +57,7 @@
               <input type="text" name="schedule" value="$stylist.getSchedule()" class="form-control" required>
               <br>
               <br>
-              <hr class="panel-hr">
+              <hr class="panel-hr" id="hr-reduce-top-margin">
               <button type="submit" name="button" class="btn btn-primary btn-lg btn-block">Update Barber Info <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>
             </form>
             <button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#deleteBarberModal" data-id="$stylist.getId()">Delete Barber <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></button>

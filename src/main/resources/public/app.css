@@ -23,7 +23,7 @@ body {
   background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(35, 24, 82, 0.22) 10%,rgba(138,114,76,0) 40%), linear-gradient(to bottom, rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), linear-gradient(135deg, #670d10 0%,#092756 100%);
   color: white;
   font-family: 'Lobster', cursive;
-  text-shadow: 0 1px 0 rgba(0,0,0,.1);
+  text-shadow: 2px 1px 5px rgba(0,0,0,.);
 }
 
 .jumbotron h1 {
@@ -94,6 +94,16 @@ body {
   font-weight: 500;
 }
 
+#stylist-info li {
+  float: left;
+  width: 144px;
+  /*margin-right: 1%;*/
+}
+
+#stylist-info li:last-child {
+  margin-bottom: 10px;
+}
+
 .glyphicon {
   vertical-align: text-top;
   margin-left: .2em;
@@ -105,7 +115,7 @@ body {
 
 .badge {
   position: absolute;
-  left: 200px;
+  left: 230px;
   width: 28px;
 }
 
@@ -114,6 +124,10 @@ body {
   margin-left: .9em;
   line-height: 1.2em;
   width: 50px;
+}
+
+#orphanClient {
+  min-width: 100%;
 }
 
 .client-barber {
@@ -126,19 +140,26 @@ hr {
   margin-bottom: 10px;
 }
 
+#hr-reduce-top-margin {
+  margin-top: -28px;
+}
+
 .btn-primary {
   /*box-shadow: inset 0px -20px 10px #275d8c;*/
   box-shadow: 0 4px 7px gray;
+  padding: 4px;
 }
 
 .btn-danger {
 	/*box-shadow: inset 0px -20px 10px #b3494b;*/
   box-shadow: 0 4px 7px gray;
+  padding: 4px;
 }
 
 .btn-success {
   /*box-shadow: inset 0px -20px 10px rgba(0, 179, 0, 1);*/
   box-shadow: 0 4px 7px gray;
+  padding: 4px;
 }
 
 .client-dropdowns {
@@ -165,8 +186,13 @@ hr {
   color: white;
 }
 
+#clickBrandName:hover {
+  font-size: 1.5em;
+  margin-left: 12px;
+}
+
 #client-div-height {
-  height: 401px;
+  height: 402px;
 }
 
 #searchBtnMarginLeft {
@@ -197,6 +223,7 @@ hr {
 }
 
 .footer {
+  box-shadow: 0 -2px 5px darkgray;
   height: 290px;
   margin-top: 5%;
   text-align: center;

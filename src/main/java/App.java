@@ -13,6 +13,7 @@ public class App {
 
     get("/", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
+      model.put("orphans", Client.getAllOrphans());
       model.put("clients", Client.all());
       model.put("stylists", Stylist.all());
       model.put("stylistsIDs", Stylist.allIDs());

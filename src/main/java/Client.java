@@ -7,12 +7,14 @@ public class Client {
   private String appt_date;
   private String cut_request;
   private int stylist_id;
+  // private boolean has_stylist;
 
   public Client(String name, String apptDate, String cutRequest, int stylistId) {
     this.name = name;
     this.appt_date = apptDate;
     this.cut_request = cutRequest;
     this.stylist_id = stylistId;
+    // this.has_stylist = true;
   }
 
   public String getName() {
@@ -109,39 +111,22 @@ public class Client {
     }
   }
 
-//   public static Integer allOrphans() {
-//     List<String> stylistIds [];
-//     List<String> clientIds [];
-//     Integer count;
-//     try(Connection con = DB.sql2o.open()) {
-//       String sql = "SELECT id FROM stylists;";
-//         con.createQuery(sql)
-//            .executeUpdate();
-//
-//     }
-//     try(Connection con = DB.sql2o.open()) {
-//       String sql = "SELECT stylist_id FROM clients;";
-//       clientIds[] = con.createQuery(sql)
-//          .executeUpdate();
-//
-//     }
-//     for (int i = 0; i < clientIds.length ; i++) {
-//       if (!(stylistIds.contains(clientIds[i]))) {
-//         count ++;
-//       } else {
-//       }
-//     }
-//     return count;
-//   }
-// }
-
-  public static List<Client> search(String input) {
-  String newInput = "%" + input + "%";
-  try (Connection con = DB.sql2o.open()) {
-    String sql = "SELECT * FROM clients WHERE lower(name) LIKE lower(:newInput);";
-    return con.createQuery(sql)
-      .addParameter("newInput", newInput)
-      .executeAndFetch(Client.class);
+  public static long getAllOrphans() {
+    long count;
+    String sql = "SELECT COUNT(*) FROM clients WHERE stylist_id not in (SELECT id FROM stylists);";
+    try(Connection con = DB.sql2o.open()) {
+      count = (long) con.createQuery(sql).executeScalar();
     }
+    return count;
   }
 }
+
+  // public static List<Client> search(String input) {
+  // String newInput = "%" + input + "%";
+  // try (Connection con = DB.sql2o.open()) {
+  //   String sql = "SELECT * FROM clients WHERE lower(name) LIKE lower(:newInput);";
+  //   return con.createQuery(sql)
+  //     .addParameter("newInput", newInput)
+  //     .executeAndFetch(Client.class);
+  //   }
+  // }

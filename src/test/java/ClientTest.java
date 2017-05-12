@@ -109,4 +109,17 @@ public class ClientTest {
     clientOne.updateStylist(2);
     assertEquals(2, Client.find(clientOne.getId()).getStylistId());
   }
+
+  @Test
+  public void getAllOrphans_returnsTotalNumberOfClientsWithoutAStylist() {
+    Stylist onlyStylist = new Stylist("Dennis", "02-14-10", "30,000", "Mon, Tue, Thur, Sat");
+    onlyStylist.save();
+    Client clientOne = new Client("Chris", "03-31-17", "low-fade", onlyStylist.getId());
+    clientOne.save();
+    Client clientTwo = new Client("Henry", "05-18-17", "low-fade", onlyStylist.getId());
+    clientTwo.save();
+    Client clientThree = new Client("John", "03-31-18", "fade", 12);
+    clientThree.save();
+    assertEquals(1, Client.getAllOrphans());
+  }
 }

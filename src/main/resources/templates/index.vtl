@@ -33,7 +33,7 @@
       <hr>
       <p><em>If a barber is removed and they had any clients, these "orphaned" clients will show here. Select a client and a barber to create a new pairing.</em></p>
       <div class="client-barber">
-        <label for="orphanClient">Select a Client <span class="badge" id="orphanClientSize">10</span></label>
+        <label for="orphanClient">Select a Client <span class="badge" id="orphanClientSize">$orphans</span></label>
         <br>
         <select id="orphanClient" name="orphanClient" type="text">
           #foreach ($client in $clients)
