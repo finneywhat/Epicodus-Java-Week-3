@@ -7,14 +7,12 @@ public class Client {
   private String appt_date;
   private String cut_request;
   private int stylist_id;
-  // private boolean has_stylist;
 
   public Client(String name, String apptDate, String cutRequest, int stylistId) {
     this.name = name;
     this.appt_date = apptDate;
     this.cut_request = cutRequest;
     this.stylist_id = stylistId;
-    // this.has_stylist = true;
   }
 
   public String getName() {

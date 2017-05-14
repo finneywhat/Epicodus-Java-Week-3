@@ -54,8 +54,13 @@
       </div>
       <br>
       <hr class="well-hr">
-      <button type="submit" class="btn btn-success btn-lg btn-block">Add Orphan Client to Barber <span class="glyphicon glyphicon-book" aria-hidden="true"></span></button>
+      #if ($orphans > 0)
+        <button type="submit" class="btn btn-success btn-lg btn-block">Add Orphan Client to Barber <span class="glyphicon glyphicon-book" aria-hidden="true"></span></button>
+        </form>
+      #else
       </form>
+        <button type="submit" class="btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#orphanModal">Add Orphan Client to Barber <span class="glyphicon glyphicon-book" aria-hidden="true"></span></button>
+      #end
     </div>
   </div>
   <div class="col-md-push-1 col-md-5">
@@ -103,11 +108,29 @@
         <p>No barbers</p>
       #else
         #foreach ($stylist in $stylists)
-          <li><a href="/stylists/$stylist.getId()">$stylist.getName()</a>  <span class="badge">$stylist.getClientSize()</span></li>
+          <li><a href="/stylists/$stylist.getId()">$stylist.getName()</a>  <span class="badge num-clients">$stylist.getClientSize()</span></li>
         #end
       #end
       </ol>
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="orphanModal" tabindex="-1" role="dialog" aria-labelledby="orphanLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="orphanLabel">Oops...</h4>
+      </div>
+      <div class="modal-body">
+        <p>There are no orphan clients to reassign to a new barber.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Cancel</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 <!--index.vtl-->

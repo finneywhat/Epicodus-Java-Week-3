@@ -42,6 +42,20 @@ body {
   width: 100%;
 }
 
+#clickBrandName {
+  padding-top: 5px;
+  font-size: 1.7em;
+  font-family: 'Lobster';
+  margin-left: 10px;
+  text-shadow: 0 1px 3px #3e223d;
+  color: white;
+}
+
+#clickBrandName:hover {
+  font-size: 1.5em;
+  margin-left: 12px;
+}
+
 #logo {
   margin-top: -15px;
 }
@@ -104,6 +118,14 @@ body {
   margin-bottom: 10px;
 }
 
+#add-barber {
+  font-family: 'Lobster';
+  color: white;
+  text-shadow: 0 4px 10px black;
+  font-size: 1.7em;
+  line-height: 1em;
+}
+
 .glyphicon {
   vertical-align: text-top;
   margin-left: .2em;
@@ -124,10 +146,15 @@ body {
   margin-left: .9em;
   line-height: 1.2em;
   width: 50px;
+  background-color: #EF6D84;
 }
 
 #orphanClient {
   min-width: 100%;
+}
+
+.num-clients {
+  background-color: #58D68D;
 }
 
 .client-barber {
@@ -157,9 +184,16 @@ hr {
 }
 
 .btn-success {
-  /*box-shadow: inset 0px -20px 10px rgba(0, 179, 0, 1);*/
+  background-color: #58D68D;
   box-shadow: 0 4px 7px gray;
   padding: 4px;
+  border: 1px solid #58D68D;
+}
+
+.btn-success:hover {
+  background-color: #4DC680;
+  border: 1px solid #4DC680;
+
 }
 
 .client-dropdowns {
@@ -168,27 +202,15 @@ hr {
   margin-left: 20px;
 }
 
-#deleteBarberModal {
+#deleteBarberModal,
+#deleteClientModal,
+#orphanModal {
   top: 10%;
 }
 
 .modal-body {
   margin-left: 10%;
   width: 80%;
-}
-
-#clickBrandName {
-  padding-top: 5px;
-  font-size: 1.7em;
-  font-family: 'Lobster';
-  margin-left: 10px;
-  text-shadow: 0 1px 3px #3e223d;
-  color: white;
-}
-
-#clickBrandName:hover {
-  font-size: 1.5em;
-  margin-left: 12px;
 }
 
 #client-div-height {
