@@ -1,0 +1,36 @@
+<!-- search-results.vtl -->
+<div class="row">
+  <div class="well hover-shadow col-md-push-3 col-md-6">
+    <h3 class="panel-title">Search Results</h3>
+    <hr>
+    <div class="row">
+      <div class="col-md-6">
+        <h4 class="search-title">Clients</h4>
+        <hr>
+        #if ($clients.size() > 0)
+          #foreach ($client in $clients)
+          <li class="search-list"><a href="/stylists/$client.getStylistId()/clients/$client.getId()">$client.getName()</a></li>
+          #end
+        #else
+          <p>
+            Got nothing for ya! Refine your search.
+          </p>
+        #end
+      </div>
+      <div class="col-md-6">
+        <h4 class="search-title">Barber</h4>
+        <hr>
+        #if ($stylists.size() > 0)
+          #foreach ($stylist in $stylists)
+          <li class="search-list"><a href="/stylists/$stylist.getId()">$stylist.getName()</a></li>
+          #end
+        #else
+          <p>
+            Got nothing for ya! Refine your search.
+          </p>
+        #end
+      </div>
+    </div>
+  </div>
+</div>
+<!-- search-results.vtl -->

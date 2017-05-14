@@ -177,5 +177,14 @@ public class App {
       response.redirect(request.headers("Referer"));
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
+
+    get("/search-results", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      String searchInput = request.queryParams("searchInput");
+      model.put("clients", Client.search(searchInput));
+      model.put("stylists", Stylist.search(searchInput));
+      model.put("template", "templates/search-results.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
   }
 }
