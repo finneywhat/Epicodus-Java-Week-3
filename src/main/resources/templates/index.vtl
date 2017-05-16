@@ -21,7 +21,7 @@
     <div class="row well hover-shadow">
       <h3 class="panel-title">Add a New Barber</h3>
       <hr>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+      <p class="border-p">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       <form action="/stylists/new" method="get">
         <hr class="well-hr">
         <button type="submit" class="btn btn-primary btn-lg btn-block">Add Barber <span class="glyphicon glyphicon-scissors" aria-hidden="true"></span></button>
@@ -31,31 +31,37 @@
       <form action="/stylists/$stylist.getId()/clients/$client.getId()/reassign" method="post">
       <h3 style="margin-top:1px" class="panel-title">Orphaned Clients</h3>
       <hr>
-      <p><em>If a barber is removed and they had any clients, these "orphaned" clients will show here. Select a client and a barber to create a new pairing.</em></p>
-      <div class="client-barber">
-        <label for="orphanClient">Select a Client <span class="badge" id="orphanClientSize">$orphans</span></label>
-        <br>
-        <select id="orphanClient" name="orphanClient" type="text">
-          #foreach ($client in $clients)
+      <p class="border-p"><em>If a barber is removed and they had any clients, these "orphaned" clients will show here. Select a client and a barber to create a new pairing.</em></p>
+      <div id="barber-orphan-index">
+        <div class="client-barber">
+          #if ($orphans == 0)
+            <label for="orphanClient">Select a Client <span class="badge orphanClientSize diff-badge-gray">$orphans</span></label>
+          #else
+            <label for="orphanClient">Select a Client <span class="badge orphanClientSize">$orphans</span></label>
+          #end
+          <br>
+          <select id="orphanClient" name="orphanClient" type="text">
+            #foreach ($client in $clients)
             #if (!$stylistsIDs.contains($client.getStylistId()))
             <option value="$client.getId()">$client.getName()</option>
             #end
-          #end
-        </select>
-      </div>
-      <div class="client-barber">
-        <label for="stylistId">Select a Barber</label>
-        <br>
-        <select id="stylistNewClient" name="stylistNewClient" type="text">
-          #foreach ($stylist in $stylists)
-          <option value="$stylist.getId()">$stylist.getName()</option>
-          #end
-        </select>
+            #end
+          </select>
+        </div>
+        <div class="client-barber-left-margin">
+          <label for="stylistId">Select a Barber</label>
+          <br>
+          <select id="stylistNewClient" name="stylistNewClient" type="text">
+            #foreach ($stylist in $stylists)
+            <option value="$stylist.getId()">$stylist.getName()</option>
+            #end
+          </select>
+        </div>
       </div>
       <br>
       <hr class="well-hr">
       #if ($orphans > 0)
-        <button type="submit" class="btn btn-success btn-lg btn-block">Add Orphan Client to Barber <span class="glyphicon glyphicon-book" aria-hidden="true"></span></button>
+        <button type="submit" class="btn btn-success btn-lg btn-block">Add Orphan Client to Barber <span class="glyphicon glyphicon-book" aria-hidden="true" id="submitOrphan"></span></button>
         </form>
       #else
         </form>
@@ -68,31 +74,33 @@
       <h3 class="panel-title">Add a New Client</h3>
       <hr>
       <form action="/stylists/$stylist.getId()/client/new" method="post">
-        <div class="form-group">
+        <div class="form-group" id="new-client-index">
           <label for="name">Name</label>
           <input id="name" name="name" type="text" class="form-control" required>
-          <label for="apptDate">Appointment Date</label>
+          <label for="apptDate" id="label-margin-top">Appointment Date</label>
           <input id="apptDate" name="apptDate" type="date" class="form-control" required>
           <br>
-          <div class="client-barber">
-            <label for="stylistId">Select a Barber</label>
-            <br>
-            <select id="stylistId" name="stylistId" type="text">
-              #foreach ($stylist in $stylists)
-              <option value="$stylist.getId()">$stylist.getName()</option>
-              #end
-            </select>
-          </div>
-          <div class="client-barber">
-            <label for="cutType">Requested Service</label>
-            <br>
-            <select id="cutType" name="cutType" type="text">
-              <option value="Classic Cut">Classic Cut</option>
-              <option value="Buzz">Buzz</option>
-              <option value="Low Skin Fade">Low Skin Fade</option>
-              <option value="High Fade">High fade</option>
-              <option value="Beard Trim">Beard trim</option>
-            </select>
+          <div id="barber-service-index">
+            <div class="client-barber">
+              <label for="stylistId">Select a Barber</label>
+              <br>
+              <select id="stylistId" name="stylistId" type="text">
+                #foreach ($stylist in $stylists)
+                <option value="$stylist.getId()">$stylist.getName()</option>
+                #end
+              </select>
+            </div>
+            <div class="client-barber-left-margin">
+              <label for="cutType">Requested Service</label>
+              <br>
+              <select id="cutType" name="cutType" type="text">
+                <option value="Classic Cut">Classic Cut</option>
+                <option value="Buzz">Buzz</option>
+                <option value="Low Skin Fade">Low Skin Fade</option>
+                <option value="High Fade">High fade</option>
+                <option value="Beard Trim">Beard trim</option>
+              </select>
+            </div>
           </div>
         </div>
         <hr class="well-hr">

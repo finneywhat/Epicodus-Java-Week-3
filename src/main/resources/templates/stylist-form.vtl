@@ -4,15 +4,18 @@
     <h3 id="add-barber">Add a Barber</h3>
     <hr>
     <form action="/stylists" method="post">
-      <label for="name">Name</label>
-      <input id="name" name="name" type="text" class="form-control" required>
-      <label for="hire-date">Hire Date</label>
-      <input id="hire-date" name="hire-date" type="date" class="form-control" required>
-      <label for="salary">Salary</label>
-      <input id="salary" name="salary" type="text" class="form-control" placeholder="25,000" required>
-      <label for="schedule">Schedule</label>
-      <input id="schedule" name="schedule" type="text" class="form-control" placeholder="Tue-Sat" required>
-      <br>
+      <div class="body-padding">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" class="form-control" required>
+        <label for="hire-date">Hire Date</label>
+        <input id="hire-date" name="hire-date" type="date" class="form-control" required>
+        <label for="salary">Salary</label>
+        <input id="salary" name="salary" type="text" class="form-control" placeholder="25,000" required>
+        <label for="schedule">Schedule</label>
+        <input id="schedule" name="schedule" type="text" class="form-control" placeholder="Tue-Sat" required>
+        <br>
+      </div>
+      <hr>
       <button type="submit" class="btn btn-primary btn-lg btn-block">Add Barber</button>
     </form>
   </div>

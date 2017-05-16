@@ -154,14 +154,6 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    // get("/stylists/notemployed/clients/:id", (request, response) -> {
-    //   Map<String, Object> model = new HashMap<String, Object>();
-    //   Client client = Client.find(Integer.parseInt(request.params(":id")));
-    //   model.put("client", client);
-    //   model.put("template", "templates/orphaned-client-info.vtl");
-    //   return new ModelAndView(model, layout);
-    // }, new VelocityTemplateEngine());
-
     post("/stylists/:stylistId/clients/:id/reassign", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Client client = Client.find(Integer.parseInt(request.queryParams("orphanClient")));

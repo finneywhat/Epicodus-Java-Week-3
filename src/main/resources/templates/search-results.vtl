@@ -12,8 +12,8 @@
           <li class="search-list"><a href="/stylists/$client.getStylistId()/clients/$client.getId()">$client.getName()</a></li>
           #end
         #else
-          <p>
-            Got nothing for ya! Refine your search.
+          <p class="search-list">
+            -- No results --
           </p>
         #end
       </div>
@@ -22,11 +22,11 @@
         <hr>
         #if ($stylists.size() > 0)
           #foreach ($stylist in $stylists)
-          <li class="search-list"><a href="/stylists/$stylist.getId()">$stylist.getName()</a></li>
+          <li class="search-list"><a href="/stylists/$stylist.getId()">$stylist.getName() <span class="badge num-clients">$stylist.getClientSize()</span></a></li>
           #end
         #else
-          <p>
-            Got nothing for ya! Refine your search.
+          <p class="search-list">
+            -- No results --
           </p>
         #end
       </div>

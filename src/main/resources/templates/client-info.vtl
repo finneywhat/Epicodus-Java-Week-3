@@ -7,25 +7,31 @@
         <div class="panel-heading">
           <h3 class="panel-title">Client Details</h3>
         </div>
-        <div class="panel-body">
+        <div class="panel-body" id="specific-client">
           <h5>Name</h5>
-          <p><em>$client.getName()</em></p>
+          <p>$client.getName()</p>
           <hr>
           <h5>Appointment Date</h5>
-          <p><em>$client.getApptDate()</em></p>
+          <p>$client.getApptDate()</p>
           <hr>
           <h5>Service Requested</h5>
-          <p><em>$client.getCut()</em></p>
+          <p>$client.getCut()</p>
           <hr>
           <h5>Barber</h5>
-          <p><a href="/stylists/$stylist.getId()"><em>$stylist.find($stylist.getId()).getName()</em></a></p>
+          #if (!$stylist.find($stylist.getId()).getName())
+            <p>
+              No current barber
+            </p>
+          #else
+            <p><a href="/stylists/$stylist.getId()">$stylist.find($stylist.getId()).getName()</a></p>
+          #end
         </div>
       </div>
     </div>
     <div class="col-md-4">
       <div class="panel panel-default hover-shadow">
         <div class="panel-heading">
-          <h3 class="panel-title">Update Client Info</h3>
+          <h3 class="panel-title">Update/Delete $client.getName()</h3>
         </div>
         <div class="panel-body">
           <form action="/stylists/$stylist.getId()/clients/$client.getId()/update" method="post" class="form-group">
@@ -35,28 +41,29 @@
             <label for="apptDate">Appointment Date</label>
             <input type="date" name="apptDate" value="$client.getApptDate()" class="form-control">
             <br>
-            <div class="client-dropdowns">
-              <label for="cutType">Requested Service</label>
-              <br>
-              <select id="cutType" name="cutType" type="text">
-                <option value="$client.getCut()">$client.getCut()</option>
-                <option value="Classic Cut">Classic Cut</option>
-                <option value="Buzz">Buzz</option>
-                <option value="Low Skin Fade">Low Skin Fade</option>
-                <option value="High Fade">High fade</option>
-                <option value="Beard Trim">Beard trim</option>
-              </select>
-              <br>
-            </div>
-            <div class="client-dropdowns">
-              <label for="chgStylist">Change Barber</label>
-              <br>
-              <select id="chgStylist" name="chgStylist" type="text">
-                #foreach ($stylist in $stylists)
-                <option value="$stylist.getId()">$stylist.getName()</option>
-                #end
-              </select>
-
+            <div id="client-request">
+              <div class="client-dropdowns">
+                <label for="cutType">Requested Service</label>
+                <br>
+                <select id="cutType" name="cutType" type="text">
+                  <option value="$client.getCut()">$client.getCut()</option>
+                  <option value="Classic Cut">Classic Cut</option>
+                  <option value="Buzz">Buzz</option>
+                  <option value="Low Skin Fade">Low Skin Fade</option>
+                  <option value="High Fade">High fade</option>
+                  <option value="Beard Trim">Beard trim</option>
+                </select>
+                <br>
+              </div>
+              <div class="client-dropdowns">
+                <label for="chgStylist">Change Barber</label>
+                <br>
+                <select id="chgStylist" name="chgStylist" type="text">
+                  #foreach ($stylist in $stylists)
+                  <option value="$stylist.getId()">$stylist.getName()</option>
+                  #end
+                </select>
+              </div>
             </div>
             <br>
             <button type="submit" name="button" class="btn btn-primary btn-lg btn-block">Update Client Info <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>
@@ -83,7 +90,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
         <form id="deleteClientForm" action="/stylists/$stylist.getId()/clients/$client.getId()/delete" method="post">
-          <button type="submit" class="btn btn-danger">Delete Client</button>
+          <button type="submit" class="btn btn-danger modal-delete">Delete Client</button>
         </form>
       </div>
     </div><!-- /.modal-content -->

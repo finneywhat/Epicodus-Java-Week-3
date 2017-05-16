@@ -1,11 +1,20 @@
+// 
+// $(function() {
+//   $('#submitOrphan').submit(function(){
+//
+//     window.scrollTo(0, document.body.scrollHeight);
+//   });
+//
+// });
 
-$(function() {
-  $('#deleteBarberModal').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget)
-    var stylistId = button.data('id')
-
-    var modal = $(this)
-    modal.find('#deleteBarberForm').attr("action", "/stylists/"+stylistId+"/delete")
-  });
-
-});
+// function refreshPage() {
+//   var page_y = document.getElementsByTagName("body")[0].scrollTop;
+//   window.location.href = window.location.href.split('?')[0] + '?page_y=' + page_y;
+// }
+//
+// window.onload = function() {
+//     if ( window.location.href.indexOf('page_y') != -1 ) {
+//         var match = window.location.href.split('?')[1].split("&")[0].split("=");
+//         document.getElementsByTagName("body")[0].scrollTop = match[1];
+//   }
+// }

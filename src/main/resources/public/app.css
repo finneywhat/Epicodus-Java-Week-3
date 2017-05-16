@@ -2,7 +2,8 @@
 font-family: 'Questrial', sans-serif;
 font-family: 'Righteous', cursive;
 font-family: 'Poiret One', cursive;
-font-family: 'Playball', cursive;*/
+font-family: 'Playball', cursive;
+font-family: 'Hind', sans-serif;*/
 
 body {
   background-image: url("/images/white-gray-bckg.jpg");
@@ -65,6 +66,22 @@ body {
   margin-bottom: 2em;
 }
 
+label {
+  text-transform: uppercase;
+  color: gray;
+  font-size: .83em;
+}
+
+select {
+  width: 150px;
+  height: 2em;
+}
+
+.border-p,
+.body-padding {
+  padding: 5px 30px;
+}
+
 .panel {
   box-shadow: 0 2px 3px black;
   border: 1px solid #393D41;
@@ -104,14 +121,18 @@ body {
 }
 
 .stylist-labels {
-  font-size: 18px;
   font-weight: 500;
+}
+
+#stylist-info ol {
+  padding: 8px 0 0 65px;
 }
 
 #stylist-info li {
   float: left;
-  width: 144px;
-  /*margin-right: 1%;*/
+  width: 170px;
+  padding-left: 10px;
+  font-family: 'Hind';
 }
 
 #stylist-info li:last-child {
@@ -135,18 +156,47 @@ body {
   width: 300px;
 }
 
+#barber-service-index,
+#barber-orphan-index {
+  text-align: center;
+}
+
+#barber-orphan-index {
+  padding-top: 5px;
+  margin-bottom: -10px;
+}
+
+#barber-list li {
+  font-family: 'Hind';
+  padding-top: 1px;
+}
+
+#barber-list a {
+  margin-left: 1em;
+}
+
+#new-client-index {
+  padding: 5px 30px;
+}
+
+#label-margin-top {
+  margin-top: 15px;
+}
+
 .badge {
   position: absolute;
   left: 230px;
   width: 28px;
 }
 
-#orphanClientSize {
+.orphanClientSize {
   position: initial;
-  margin-left: .9em;
-  line-height: 1.2em;
-  width: 50px;
   background-color: #EF6D84;
+}
+
+.diff-badge-gray {
+  position: initial;
+  background-color: gray;
 }
 
 #orphanClient {
@@ -157,9 +207,13 @@ body {
   background-color: #58D68D;
 }
 
-.client-barber {
+.client-barber-left-margin {
   display: inline-block;
   margin-left: 40px;
+}
+
+.client-barber {
+  display: inline-block;
 }
 
 hr {
@@ -171,41 +225,60 @@ hr {
   margin-top: -28px;
 }
 
+.btn {
+  padding: 4px;
+}
+
 .btn-primary {
   /*box-shadow: inset 0px -20px 10px #275d8c;*/
   box-shadow: 0 4px 7px gray;
-  padding: 4px;
 }
 
 .btn-danger {
 	/*box-shadow: inset 0px -20px 10px #b3494b;*/
   box-shadow: 0 4px 7px gray;
-  padding: 4px;
 }
 
 .btn-success {
   background-color: #58D68D;
   box-shadow: 0 4px 7px gray;
-  padding: 4px;
   border: 1px solid #58D68D;
 }
 
 .btn-success:hover {
   background-color: #4DC680;
   border: 1px solid #4DC680;
+}
 
+#client-request {
+  text-align: center;
+  margin-bottom: 6px;
 }
 
 .client-dropdowns {
   display: inline-block;
-  margin-bottom: 20px;
-  margin-left: 20px;
 }
 
 #deleteBarberModal,
 #deleteClientModal,
 #orphanModal {
   top: 10%;
+}
+
+#stylist-panel-padding {
+  padding: 0 30px;
+}
+
+#stylist-panel-padding input {
+  margin-bottom: -7px;
+}
+
+#update-barber-btn {
+  margin-bottom: 10px;
+}
+
+.modal-delete {
+  box-shadow: none;
 }
 
 .modal-body {
@@ -255,8 +328,36 @@ hr {
 
 .search-list {
   list-style: none;
-  padding: 10px;
+  padding: 3px 0 3px 30px;
   font-style: italic;
+}
+
+#specific-client {
+  padding: 15px 40px;
+}
+
+#specific-client p {
+  font-size: 1.5em;
+}
+
+#specific-client h5,
+#stylist-details h5 {
+  text-transform: uppercase;
+  color: gray;
+  font-size: .83em;
+}
+
+#stylist-details h5:first-child {
+  margin-top: 0;
+}
+
+#stylist-details p {
+  font-size: 1.5em;
+  display: inline;
+}
+
+#stylist-details {
+  padding: 5px 30px 0 30px;
 }
 
 .footer {
