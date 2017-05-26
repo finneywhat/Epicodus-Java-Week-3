@@ -1,6 +1,6 @@
 <!-- stylist-info.vtl -->
   <div class="row">
-    <h2 style="font-family:'Questrial' "class="title-center">Barber Details</h2>
+    <h2 class="title-center">Barber Details</h2>
     <div class="col-md-5 col-md-offset-1">
       <div class="row well hover-shadow">
         <h3 class="panel-title">$stylist.getName() Details</h3>
@@ -83,7 +83,7 @@
             <input type="date" name="hireDate" value="$stylist.getHireDate()" class="form-control" required>
             <br>
             <label for="salary" class="stylist-labels">Salary</label>
-            <input type="text" name="salary" value="$stylist.getSalary()" class="form-control" required>
+            <input type="text" inputmode="numeric" step="1000" name="salary" value="$stylist.getSalary()" class="form-control"  required>
             <br>
             <label for="schedule" class="stylist-labels">Schedule</label>
             <input type="text" name="schedule" value="$stylist.getSchedule()" class="form-control" required>

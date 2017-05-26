@@ -1,6 +1,7 @@
 import org.sql2o.*;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Stylist {
   private int id;
@@ -139,4 +140,17 @@ public class Stylist {
         .executeAndFetch(Stylist.class);
     }
   }
+
+    // public String[] addCommas(String salary) {
+    //   String[] numArray = salary.split("");
+    //   int count = 0;
+    //   for (int i = salary.length() - 1; i >= 0; i--) {
+    //     count++;
+    //     if (count == 3) {
+    //       numArray[i] = "," + numArray[i];
+    //       count = 0;
+    //     }
+    //   }
+    //   return numArray;
+    // }
 }
