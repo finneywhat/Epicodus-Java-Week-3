@@ -42,9 +42,9 @@
           <br>
           <select id="orphanClient" name="orphanClient" type="text">
             #foreach ($client in $clients)
-            #if (!$stylistsIDs.contains($client.getStylistId()))
-            <option value="$client.getId()">$client.getName()</option>
-            #end
+              #if (!$stylistsIDs.contains($client.getStylistId()))
+              <option value="$client.getId()">$client.getName()</option>
+              #end
             #end
           </select>
         </div>
@@ -53,7 +53,7 @@
           <br>
           <select id="stylistNewClient" name="stylistNewClient" type="text">
             #foreach ($stylist in $stylists)
-            <option value="$stylist.getId()">$stylist.getName()</option>
+              <option value="$stylist.getId()">$stylist.getName()</option>
             #end
           </select>
         </div>

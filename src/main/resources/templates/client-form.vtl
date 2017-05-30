@@ -1,7 +1,7 @@
 <!-- client-form.vtl -->
 <div class="row">
   <div class="col-md-push-4 col-md-4">
-    <div class="panel panel-default hover-shadow">
+    <div class="panel panel-default hover-shadow top-margin">
       <div class="panel-heading">
         <h3 class="panel-title">Add Client to $stylist.getName()</h3>
       </div>
@@ -14,17 +14,37 @@
           <label for="cutType">Requested Service</label>
           <br>
           <select id="cutType" name="cutType" type="text">
-              <option value="Classic Cut">Classic Cut</option>
-              <option value="Buzz">Buzz</option>
-              <option value="Low Skin Fade">Low Skin Fade</option>
-              <option value="High Fade">High fade</option>
-              <option value="Beard Trim">Beard trim</option>
+            <option value="Classic Cut">Classic Cut</option>
+            <option value="Buzz">Buzz</option>
+            <option value="Low Skin Fade">Low Skin Fade</option>
+            <option value="High Fade">High fade</option>
+            <option value="Beard Trim">Beard trim</option>
+          </select>
+          <br>
+          <hr>
+          <button type="submit" name="button" class="btn btn-success btn-lg btn-block">Add New Client</button>
+        </form>
+        <!-- ORPHAN CLIENT FORM -->
+        <p id="fancy-or">or</p>
+        <hr>
+        <form action="/stylists/$stylist.getId()/clients/$client.getId()/reassignClientForm" method="post">
+          #if ($orphans == 0)
+            <label for="orphanClient">Select Orphan <span class="badge orphanClientSize diff-badge-gray">$orphans</span></label>
+          #else
+            <label for="orphanClient">Select Orphan <span class="badge orphanClientSize">$orphans</span></label>
+          #end
+          <br>
+          <select id="orphanClient" name="orphanClient" type="text">
+            #foreach ($client in $clients)
+              #if (!$stylistsIDs.contains($client.getStylistId()))
+                <option value="$client.getId()">$client.getName()</option>
+              #end
+            #end
           </select>
           <br>
           <br>
-          <button type="submit" name="button" class="btn btn-success btn-lg btn-block">Add Client</button>
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Add Orphan</button>
         </form>
-        <a href="/" class="btn btn-primary btn-lg btn-block">Home</a>
       </div>
     </div>
   </div>

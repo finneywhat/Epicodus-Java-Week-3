@@ -118,11 +118,13 @@ select {
 
 .hover-shadow {
   box-shadow: 0 3px 10px lightgray;
+  position: relative;
 }
 
 .hover-shadow:hover {
   box-shadow: 0 5px 15px gray;
-  height: 110%;
+  position: relative;
+  top: -2px;
 }
 
 .well {
@@ -174,6 +176,10 @@ select {
   text-shadow: 0 4px 10px black;
   font-size: 2.25em;
   line-height: 1em;
+}
+
+.top-margin {
+  margin-top: 5em;
 }
 
 .glyphicon {
@@ -355,8 +361,18 @@ hr {
    border-bottom: 1px solid #bbb;
  }
 
+#fancy-or {
+  text-align: center;
+  margin-left: auto;
+  margin-bottom: -20px;
+  margin-right: auto;
+  width: 25px;
+  background-color: #ffffff;
+  position: relative;
+}
+
 #homeWellsMarginTop {
-  margin-top: 45px;
+  margin-top: 5em;
 }
 
 .panel-hr {
