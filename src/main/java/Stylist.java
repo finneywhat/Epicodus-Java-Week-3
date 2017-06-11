@@ -57,6 +57,14 @@ public class Stylist {
     }
   }
 
+  public static Integer barberSize() {
+    Integer size;
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT COUNT(*) FROM stylists;";
+      return size = con.createQuery(sql).executeScalar(Integer.class);
+    }
+  }
+
   @Override
   public boolean equals(Object otherStylist) {
     if (!(otherStylist instanceof Stylist)) {

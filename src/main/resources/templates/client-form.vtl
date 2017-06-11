@@ -5,7 +5,7 @@
       <div class="panel-heading">
         <h3 class="panel-title">Add Client to $stylist.getName()</h3>
       </div>
-      <div class="panel-body">
+      <div class="panel-body" id="panel-padding">
         <form action="/stylists/$stylist.getId()/clients/success" method="post" class="form-group">
           <label for="name">Name</label>
           <input type="text" name="name" class="form-control" required>
@@ -21,12 +21,12 @@
             <option value="Beard Trim">Beard trim</option>
           </select>
           <br>
-          <hr>
+          <br>
           <button type="submit" name="button" class="btn btn-success btn-lg btn-block">Add New Client</button>
         </form>
         <!-- ORPHAN CLIENT FORM -->
         <p id="fancy-or">or</p>
-        <hr>
+        <hr style="margin-bottom:15px;">
         <form action="/stylists/$stylist.getId()/clients/$client.getId()/reassignClientForm" method="post">
           #if ($orphans == 0)
             <label for="orphanClient">Select Orphan <span class="badge orphanClientSize diff-badge-gray">$orphans</span></label>

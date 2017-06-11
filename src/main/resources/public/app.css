@@ -124,7 +124,7 @@ select {
 .hover-shadow:hover {
   box-shadow: 0 5px 15px gray;
   position: relative;
-  top: -2px;
+  top: -1px;
 }
 
 .well {
@@ -135,6 +135,10 @@ select {
   border-bottom: 1px solid #bbb;
 }
 
+#cutType {
+  width: 100%;
+}
+
 .panel-title {
   text-align: center;
   background-color: #f5f5f5;
@@ -142,6 +146,10 @@ select {
   color: white;
   text-shadow: 3px 2px 5px black;
   font-size: 2.25em;
+}
+
+#barbers {
+  height: 197px;
 }
 
 /*.well h3 {
@@ -201,6 +209,18 @@ select {
   margin-bottom: -10px;
 }
 
+#barber-list {
+  height: 105px;
+  overflow: scroll;
+}
+
+.list-group-item {
+  background-color: transparent;
+  padding-bottom: 3px;
+  padding-left: 25px;
+  border: none;
+}
+
 #barber-list li {
   font-family: 'Hind';
   padding-top: 1px;
@@ -241,6 +261,10 @@ select {
 
 .num-clients {
   background-color: #58D68D;
+}
+
+.barber-size {
+  position: inherit;
 }
 
 .client-barber-left-margin {
@@ -363,12 +387,15 @@ hr {
 
 #fancy-or {
   text-align: center;
-  margin-left: auto;
-  margin-bottom: -20px;
-  margin-right: auto;
+  color: gray;
+  margin: 10px auto -20px auto;
   width: 25px;
   background-color: #ffffff;
   position: relative;
+}
+
+#panel-padding {
+  padding: 10px 40px 30px;
 }
 
 #homeWellsMarginTop {

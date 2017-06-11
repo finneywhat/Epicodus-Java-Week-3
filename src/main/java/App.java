@@ -17,6 +17,7 @@ public class App {
       model.put("clients", Client.all());
       model.put("stylists", Stylist.all());
       model.put("stylistsIDs", Stylist.allIDs());
+      model.put("barbers", Stylist.barberSize());
       model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());

@@ -1,8 +1,8 @@
-// 
+
 // $(function() {
 //   $('#submitOrphan').submit(function(){
 //
-//     window.scrollTo(0, document.body.scrollHeight);
+//     response.setHeader("Refresh", "0; URL=http://localhost:4567");
 //   });
 //
 // });
