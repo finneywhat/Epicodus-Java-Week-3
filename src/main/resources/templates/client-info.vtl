@@ -60,9 +60,15 @@
                 <label for="chgStylist">Change Barber</label>
                 <br>
                 <select id="chgStylist" name="chgStylist" type="text">
-                  <option value="$stylist.getId()">$stylist.find($stylist.getId()).getName()</option>
-                  #foreach ($stylist in $stylists)
-                  <option value="$stylist.getId()">$stylist.getName()</option>
+                  #if (!$stylist.find($stylist.getId()).getName())
+                    #foreach ($stylist in $stylists)
+                      <option value="$stylist.getId()">$stylist.getName()</option>
+                    #end
+                  #else
+                    <option value="$stylist.getId()">$stylist.find($stylist.getId()).getName()</option>
+                    #foreach ($stylist in $stylists)
+                    <option value="$stylist.getId()">$stylist.getName()</option>
+                    #end
                   #end
                 </select>
               </div>

@@ -27,7 +27,7 @@
         <button type="submit" class="btn btn-primary btn-lg btn-block">Add Barber <span class="glyphicon glyphicon-scissors" aria-hidden="true"></span></button>
       </form>
     </div>
-    <div class="row well hover-shadow">
+    <div class="row well hover-shadow" id="orphan-well">
       <form action="/stylists/$stylist.getId()/clients/$client.getId()/reassign" method="post">
       <h3 style="margin-top:1px" class="panel-title">Orphaned Clients</h3>
       <hr class="panel-hr">

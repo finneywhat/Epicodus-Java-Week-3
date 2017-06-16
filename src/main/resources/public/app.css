@@ -194,7 +194,11 @@ select {
 }
 
 #barbers {
-  height: 200px;
+  height: 198px;
+}
+
+#orphan-well {
+  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
 }
 
 /*.well h3 {
@@ -354,25 +358,39 @@ hr {
 }
 
 .btn-primary {
-  /*box-shadow: inset 0px -20px 10px #275d8c;*/
-  box-shadow: 0 4px 7px gray;
+  box-shadow: 0 2px 1px gray;
   background-color: #3D7EAA;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0;
+  margin-top: 11px;
+  margin-bottom: -1px;
+}
+
+.btn-danger:hover {
+  box-shadow: 0 0;
+  margin-top: 16px;
+  margin-bottom: -1px;
 }
 
 .btn-danger {
 	/*box-shadow: inset 0px -20px 10px #b3494b;*/
-  box-shadow: 0 4px 7px gray;
+  box-shadow: 0 2px 1px gray;
 }
 
 .btn-success {
   background-color: #58D68D;
-  box-shadow: 0 4px 7px gray;
+  box-shadow: 0 2px 1px gray;
   border: 1px solid #58D68D;
 }
 
 .btn-success:hover {
   background-color: #4DC680;
   border: 1px solid #4DC680;
+  box-shadow: 0 0;
+  margin-top: 11px;
+  margin-bottom: -1px;
 }
 
 #client-request {
@@ -402,8 +420,33 @@ hr {
   margin: 20px 0;
 }
 
+#update-barber-btn:hover {
+  margin-top: 21px;
+  margin-bottom: 19px;
+}
+
 #delete-barber-btn {
   margin-bottom: 10px;
+}
+
+#delete-barber-btn:hover {
+  margin-top: 21px;
+  margin-bottom: 9px;
+}
+
+#new-client-btn {
+  margin-top: 10px;
+}
+
+#new-client-btn:hover {
+  margin-top: 11px;
+  margin-bottom: -1px;
+}
+
+#modal-orphan:hover,
+#submit-orphan:hover {
+  margin-top: 1px;
+  margin-bottom: -1px;
 }
 
 .modal-delete {
@@ -415,18 +458,14 @@ hr {
   width: 80%;
 }
 
-/*.smaller-client-header {
-  font-size: 1.9em;
-  line-height: 1.31em;
-}*/
-
 #client-div-height {
-  height: 411px;
+  height: 409px;
 }
 
 .rel-position {
   position: inherit;
   margin-top: -5px;
+  font-family: "Hind";
 }
 
 #searchBtnMarginLeft {
@@ -475,6 +514,10 @@ hr {
   margin-right: auto;
 }
 
+.panel-default {
+  border: 0px;
+}
+
 .panel-default>.panel-heading {
   color: #333;
   border-color: #ddd;
@@ -493,7 +536,7 @@ hr {
   height: 1px;
   background: black;
   background: -webkit-gradient(linear, 0 0, 100% 0, from(white), to(white), color-stop(50%, black));
-  width: 60%;
+  width: 88%;
 }
 
 .middle-hr {
