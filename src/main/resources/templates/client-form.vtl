@@ -2,18 +2,19 @@
 <div class="row">
   <div class="col-md-push-4 col-md-4">
     <div class="panel panel-default hover-shadow top-margin">
-      <div class="panel-heading">
-        <h3 class="panel-title">Add Client to $stylist.getName()</h3>
+      <div class="panel-heading" id="whole-panel-head">
+        <h3 class="panel-title" id="top-title">Add Client to</h3>
+        <h3 class="panel-title" id="bottom-title">$stylist.getName()</h3>
       </div>
       <div class="panel-body" id="panel-padding">
         <form action="/stylists/$stylist.getId()/clients/success" method="post" class="form-group">
-          <label for="name">Name</label>
-          <input type="text" name="name" class="form-control" required>
-          <label for="apptDate">Appointment Date</label>
-          <input type="date" name="apptDate" class="form-control" required>
-          <label for="cutType">Requested Service</label>
+          <label for="name" class="add-bottom-margin">Name</label>
+          <input type="text" name="name" class="form-control add-bottom-margin modify-border" required>
+          <label for="apptDate" class="add-bottom-margin">Appointment Date</label>
+          <input type="date" name="apptDate" class="form-control add-bottom-margin modify-border" required>
+          <label for="cutType" class="add-bottom-margin">Requested Service</label>
           <br>
-          <select id="cutType" name="cutType" type="text">
+          <select id="cutType" name="cutType" type="text" class="add-bottom-margin">
             <option value="Classic Cut">Classic Cut</option>
             <option value="Buzz">Buzz</option>
             <option value="Low Skin Fade">Low Skin Fade</option>
@@ -21,12 +22,11 @@
             <option value="Beard Trim">Beard trim</option>
           </select>
           <br>
-          <br>
           <button type="submit" name="button" class="btn btn-success btn-lg btn-block">Add New Client</button>
         </form>
         <!-- ORPHAN CLIENT FORM -->
         <p id="fancy-or">or</p>
-        <hr style="margin-bottom:15px;">
+        <hr style="margin-bottom:15px;width:60%;border-top:1px solid #acaaa9;">
         <form action="/stylists/$stylist.getId()/clients/$client.getId()/reassignClientForm" method="post">
           #if ($orphans == 0)
             <label for="orphanClient">Select Orphan <span class="badge orphanClientSize diff-badge-gray">$orphans</span></label>
@@ -43,10 +43,35 @@
           </select>
           <br>
           <br>
-          <button type="submit" class="btn btn-primary btn-lg btn-block">Add Orphan</button>
+          #if ($orphans > 0)
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Add Orphan <span class="glyphicon glyphicon-book" aria-hidden="true" id="submitOrphan"></span></button>
+            </form>
+          #else
+            </form>
+            <button type="submit" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#orphanModal">Add Orphan <span class="glyphicon glyphicon-book" aria-hidden="true"></span></button>
+          #end
+          <!-- <button type="submit" class="btn btn-primary btn-lg btn-block">Add Orphan</button> -->
         </form>
       </div>
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="orphanModal" tabindex="-1" role="dialog" aria-labelledby="orphanLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="orphanLabel">Oops...</h4>
+      </div>
+      <div class="modal-body">
+        <p>There are no orphan clients to reassign to a new barber.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Cancel</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 <!-- client-form.vtl -->

@@ -20,7 +20,7 @@
   <div class="col-md-push-1 col-md-5">
     <div class="row well hover-shadow">
       <h3 class="panel-title">Add a New Barber</h3>
-      <hr>
+      <hr class="panel-hr">
       <p class="border-p">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       <form action="/stylists/new" method="get">
         <hr class="well-hr">
@@ -30,7 +30,7 @@
     <div class="row well hover-shadow">
       <form action="/stylists/$stylist.getId()/clients/$client.getId()/reassign" method="post">
       <h3 style="margin-top:1px" class="panel-title">Orphaned Clients</h3>
-      <hr>
+      <hr class="panel-hr">
       <p class="border-p"><em>If a barber is removed and they had any clients, these "orphaned" clients will show here. Select a client and a barber to create a new pairing.</em></p>
       <div id="barber-orphan-index">
         <div class="client-barber">
@@ -72,13 +72,13 @@
   <div class="col-md-push-1 col-md-5">
     <div class="row well hover-shadow">
       <h3 class="panel-title">Add a New Client</h3>
-      <hr>
+      <hr class="panel-hr">
       <form action="/stylists/$stylist.getId()/client/new" method="post">
         <div class="form-group" id="new-client-index">
           <label for="name">Name</label>
-          <input id="name" name="name" type="text" class="form-control" required>
+          <input id="name" name="name" type="text" class="form-control modify-border" required>
           <label for="apptDate" id="label-margin-top">Appointment Date</label>
-          <input id="apptDate" name="apptDate" type="date" class="form-control" required>
+          <input id="apptDate" name="apptDate" type="date" class="form-control modify-border" required>
           <br>
           <div id="barber-service-index">
             <div class="client-barber">
@@ -110,7 +110,7 @@
 
     <div class="row well hover-shadow" id="barbers">
       <h3 class="panel-title">Current Staff <span class="badge barber-size">$barbers</span></h3>
-      <hr>
+      <hr class="panel-hr">
       <ol class="list-group" id="barber-list">
       #if ($stylists.size() == 0)
         <p>No barbers</p>

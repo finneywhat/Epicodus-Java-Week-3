@@ -4,19 +4,19 @@
     <h2 class="title-center">Client Details</h2>
     <div class="col-md-4 col-md-offset-2">
       <div class="panel panel-default hover-shadow" id="client-div-height">
-        <div class="panel-heading">
+        <div class="panel-heading client-panel-head">
           <h3 class="panel-title">Client Details</h3>
         </div>
         <div class="panel-body" id="specific-client">
           <h5>Name</h5>
           <p>$client.getName()</p>
-          <hr>
+          <hr class="diff-hr">
           <h5>Appointment Date</h5>
           <p>$client.getApptDate()</p>
-          <hr>
+          <hr class="diff-hr">
           <h5>Service Requested</h5>
           <p>$client.getCut()</p>
-          <hr>
+          <hr class="diff-hr">
           <h5>Barber</h5>
           #if (!$stylist.find($stylist.getId()).getName())
             <p>
@@ -30,16 +30,16 @@
     </div>
     <div class="col-md-4">
       <div class="panel panel-default hover-shadow">
-        <div class="panel-heading">
+        <div class="panel-heading client-panel-head">
           <h3 class="panel-title smaller-client-header">Update/Delete</h3>
         </div>
         <div class="panel-body">
           <form action="/stylists/$stylist.getId()/clients/$client.getId()/update" method="post" class="form-group">
             <label for="name">Name</label>
-            <input type="text" name="name" value="$client.getName()" class="form-control">
+            <input type="text" name="name" value="$client.getName()" class="form-control modify-border">
             <br>
             <label for="apptDate">Appointment Date</label>
-            <input type="date" name="apptDate" value="$client.getApptDate()" class="form-control">
+            <input type="date" name="apptDate" value="$client.getApptDate()" class="form-control modify-border">
             <!-- insert text if appt date is in the past -->
             <br>
             <div id="client-request">
@@ -60,6 +60,7 @@
                 <label for="chgStylist">Change Barber</label>
                 <br>
                 <select id="chgStylist" name="chgStylist" type="text">
+                  <option value="$stylist.getId()">$stylist.find($stylist.getId()).getName()</option>
                   #foreach ($stylist in $stylists)
                   <option value="$stylist.getId()">$stylist.getName()</option>
                   #end

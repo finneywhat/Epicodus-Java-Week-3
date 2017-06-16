@@ -82,4 +82,9 @@ public class StylistTest {
     Client[] allClients = new Client[] {clientOne, clientTwo};
     assertEquals(true, testStylist.getClients().containsAll(Arrays.asList(allClients)));
   }
+
+  @Test
+  public void getDaysEmployed_returnsTimeBetweenHireDateAndCurrentDate() {
+    
+  }
 }

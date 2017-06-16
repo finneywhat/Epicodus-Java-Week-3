@@ -15,7 +15,6 @@ public class Stylist {
     this.hire_date = hire_date;
     this.base_salary = base_salary;
     this.work_schedule = work_schedule;
-    // employed = true;
   }
 
   public String getName() {
@@ -64,6 +63,15 @@ public class Stylist {
       return size = con.createQuery(sql).executeScalar(Integer.class);
     }
   }
+
+  // public Long getDaysEmployed(Date date) {
+  //   try {
+  //     Long millis = new SimpleDateFormat("MM/dd/yyyy").parse(date).getTime();
+  //   } catch (ParseException e) {
+  //     e.printStackTrace();
+  //   }
+  //   return millis;
+  // }
 
   @Override
   public boolean equals(Object otherStylist) {

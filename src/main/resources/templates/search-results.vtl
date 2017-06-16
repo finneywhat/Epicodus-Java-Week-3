@@ -2,11 +2,11 @@
 <div class="row">
   <div class="well hover-shadow col-md-push-3 col-md-6 top-margin">
     <h3 class="panel-title">Search Results</h3>
-    <hr>
+    <hr class="panel-hr">
     <div class="row">
       <div class="col-md-6">
         <h4 class="search-title">Clients</h4>
-        <hr>
+        <hr class="panel-hr">
         #if ($clients.size() > 0)
           #foreach ($client in $clients)
           <li class="search-list"><a href="/stylists/$client.getStylistId()/clients/$client.getId()">$client.getName()</a></li>
@@ -18,8 +18,8 @@
         #end
       </div>
       <div class="col-md-6">
-        <h4 class="search-title">Barber</h4>
-        <hr>
+        <h4 class="search-title">Barbers</h4>
+        <hr class="panel-hr">
         #if ($stylists.size() > 0)
           #foreach ($stylist in $stylists)
           <li class="search-list"><a href="/stylists/$stylist.getId()">$stylist.getName() <span class="badge num-clients">$stylist.getClientSize()</span></a></li>
